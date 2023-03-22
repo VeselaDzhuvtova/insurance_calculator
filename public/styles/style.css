@@ -184,7 +184,7 @@ h3:hover {
     background: #47439d;
     padding: 20px 200px;
     width: 900px;
-    height: 700px;
+    height: 800px;
 }
 
 #price {
@@ -237,9 +237,49 @@ label {
     color: white;
     text-align: center;
     padding: 10px 25px;
-    margin-top: 80px;
     border-radius: 15px;
     float: right;
+}
+
+.btn-ins-button {
+    margin-top: 70px;
+}
+
+.back-button {
+    margin-top: 20px;
+}
+
+.cars {
+    max-width: 1600px;
+    height: 600px;
+}
+
+.form-group {
+    display: inline-block;
+    margin: 10px;
+    font-size: 22px;
+}
+
+.btn-myCars {
+    font-size: 16px;
+    font-weight: 600;
+    font-family: 'Comic Neue', cursive;
+    background: transparent;
+    border: 2px solid #47439d;
+    color: #47439d;
+    text-align: center;
+    padding: 10px 25px;
+    border-radius: 15px;
+    margin-top: 10px;
+}
+
+.allCars {
+    width:80%;
+    background: white;
+    font-size: 16px;
+    font-weight: 700;
+    text-align: center;
+    margin: 0 auto;
 }
 
 .btn-ins-button:hover {

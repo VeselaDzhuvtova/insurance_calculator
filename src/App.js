@@ -7,12 +7,16 @@ import Contacts from './components/Contacts/Contacts';
 import Companies from './components/Companies/Companies';
 import Calculator from './components/Calculator/Calculator';
 import Table from './components/Table/Table';
+import Login from './components/Login/Login';
+import Register from './components/Register/Register';
 
 function App() {
     return (
         <div>
             <Header />
             <main>
+                <Login />
+                <Register />
                 <Home />
                 <Profile />
                 <Insurances />
