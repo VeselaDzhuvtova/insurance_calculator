@@ -17,6 +17,10 @@ body {
     width: 420px;
 }
 
+header nav>* {
+    float: left;
+}
+
 nav {
     display: inline-block;
     font-size: 18px;
