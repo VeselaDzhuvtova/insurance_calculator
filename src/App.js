@@ -1,60 +1,39 @@
-import Header from './components/Header/Header';
+import { Routes, Route } from 'react-router-dom';
 import './App.css';
+import { Fragment } from 'react';
+import Header from './components/Header/Header';
 import Home from './components/Home/Home';
-import Profile from './components/Profile/Profile';
+import Catalog from './components/Catalog/Catalog';
 import Insurances from './components/Insurances/Insurances';
 import Contacts from './components/Contacts/Contacts';
 import Companies from './components/Companies/Companies';
 import Calculator from './components/Calculator/Calculator';
-import Table from './components/Table/Table';
+import Offers from './components/Offers/Offers';
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';
+import Footer from './components/Footer/Footer';
+import Create from './components/Create/Create';
 
 function App() {
     return (
-        <div>
+        <Fragment>
             <Header />
             <main>
-                <Login />
-                <Register />
-                <Home />
-                <Profile />
-                <Insurances />
-                <Contacts />
-                <Companies />
-                <Calculator />
-                <Table />
+                <Routes>
+                    <Route path='/login' element={<Login />} />
+                    <Route path='/register' element={<Register />} />
+                    <Route path='/' element={<Home />} />
+                    <Route path='/create' element={<Create />} />
+                    <Route path='/catalog' element={<Catalog />} />
+                    <Route path='/insurances' element={<Insurances />} />
+                    <Route path='/contacts' element={<Contacts />} />
+                    <Route path='/companies' element={<Companies />} />
+                    <Route path='/calculator' element={<Calculator />} />
+                    <Route path='/offers' element={<Offers />} />
+                </Routes>
             </main>
-            <footer>
-                <div className="footer">
-                    <div className="f-container">
-                        <div className="f-box">
-                            <h4>За нас</h4>
-                            <p>
-                                Приемаме като своя мисия осигуряването на защита и сигурност за
-                                своите клиенти чрез голямо разнообразие от застрахователни продукти.
-                                Фокусът на нашата дейност е грижата за спокойствието на клиентите,
-                                което постигаме предоставяйки широк избор от застрахователни услуги.
-                                При нас всеки получава необходимия застрахователен продукт в кратки
-                                срокове и при най-изгодни условия. Ценим свободното време на своите
-                                потребители, затова се стремим да бъдем достъпни навсякъде и по
-                                всяко време, чрез своите онлайн услуги, а професионална консултация
-                                предлагаме в офисите от търговската ни мрежа.
-                            </p>
-                        </div>
-                        <div className="f-box">
-                            <h4>Новини</h4>
-                            <input type="text" placeholder="Въведи своя имейл" />
-                            <button className="third-button">Абонирай се</button>
-                        </div>
-                        <div className="clear-fix" />
-                        <br />
-                        <hr />
-                    </div>
-                    <div className="text-center-copyrights">© 2023 Всички права запазени</div>
-                </div>
-            </footer>
-        </div>
+            <Footer />
+        </Fragment>
 
     );
 }

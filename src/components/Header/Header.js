@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 const Header = () => {
     return (
         <header>
@@ -5,28 +7,31 @@ const Header = () => {
           <nav>
             <ul>
               <li>
-                <a href="">НАЧАЛО</a>
+                <Link to="/">НАЧАЛО</Link>
               </li>
               <li>
-                <a href="">ВИДОВЕ ЗАСТРАХОВКИ</a>
+                <Link to="/insurances">ВИДОВЕ ЗАСТРАХОВКИ</Link>
               </li>
               <li>
-                <a href="">КОМПАНИИ</a>
+                <Link to="/companies">КОМПАНИИ</Link>
               </li>
               <li>
-                <a href="">КОНТАКТИ</a>
+                <Link to="/contacts">КОНТАКТИ</Link>
               </li>
               <li>
-                <a href="">ВХОД</a>
+                <Link to="/login">ВХОД</Link>
               </li>
               <li>
-                <a href="">ПРОФИЛ</a>
+                <Link to="/register">РЕГИСТРАЦИЯ</Link>
               </li>
               <li>
-                <a href="">КАЛКУЛАТОР ГОА</a>
+                <Link to="/catalog">ПРОФИЛ</Link>
               </li>
               <li>
-                <a href="">ИЗХОД</a>
+                <Link to="/calculator">КАЛКУЛАТОР ГОА</Link>
+              </li>
+              <li>
+                <Link to="/logout">ИЗХОД</Link>
               </li>
             </ul>
           </nav>
