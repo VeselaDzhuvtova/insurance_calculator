@@ -129,7 +129,7 @@ h2 {
 }
 
 .insurances img {
-    width: 250px;
+    width: 150px;
 }
 
 .insurances li {
@@ -218,7 +218,7 @@ h3:hover {
 }
 
 .editDelBtn {
-    color: -webkit-link;
+    color: #47439d;
     cursor: pointer;
     text-decoration: underline;
     font-size: 18px;
@@ -300,13 +300,51 @@ label {
 
 .cars {
     max-width: 1600px;
-    height: 600px;
+    min-height: 600px;
 }
 
-.form-group {
-    display: inline-block;
-    margin: 10px;
-    font-size: 22px;
+#form-group {
+    position: relative;
+    width: 800px;
+    height: auto;
+    border-radius: 20px;
+    padding: 40px;
+    box-sizing: border-box;
+    text-align: center;
+    background: #3e4443;
+    box-shadow: 0px 0px 32px 0px #32485e, -14px -14px 20px #191c21;
+}
+
+#text-center {
+    position: relative;
+    width: 800px;
+    height: auto;
+    border-radius: 20px;
+    color: #47439d;
+    padding: 40px;
+    box-sizing: border-box;
+    text-align: center;
+    background: #3e4443;
+    box-shadow: 0px 0px 32px 0px #32485e, -14px -14px 20px #191c21;
+}
+
+#text-center > h3 {
+    color: #47439d;
+}
+
+#text-center > label {
+    color:#47439d;
+}
+
+#text-center input[type="text"] {
+    background: white;
+    padding: 30px;
+    padding-left: 20px;
+    height: 50px;
+    margin-top: 10px;
+    font-size: 16px;
+    border-radius: 15px;
+    box-shadow: inset 6px 6px 6px #c0c2c5, inset -6px -6px 6px white;
 }
 
 .btn-myCars {
@@ -370,6 +408,29 @@ input[type=submit] {
     border-radius: 15px;
     margin-right: 5px;
     margin-top: 10px;
+}
+
+#add-car {
+    background-color: transparent;
+    box-shadow: 0px 0px 40px 0px;
+    overflow: hidden;
+    text-align: center;
+    border-radius: 10px;
+    margin: 0 auto;
+    padding: 20px;
+    height: auto;
+    width: 900px;
+    color: #47439d;
+}
+
+#add-car>h2 {
+    color: #47439d;
+    font-family:  'Comic Neue', cursive;
+    font-size: 32px;
+    font-weight: 700;
+    margin-top: 10px;
+    text-transform: uppercase;
+    text-align: center;
 }
 
 input[type=submit]:hover {
@@ -445,32 +506,48 @@ td {
     padding: 10px;
 }
 
-.text-center-copyrights {
-    font-size: 16px;
-    text-align: center;
+.noCars {
+    color: crimson;
 }
 
-.third-button {
+#third-button {
     font-size: 16px;
     font-family: 'Comic Neue', cursive;
     background: transparent;
-    border: 2px solid white;
-    color: white;
+    border: 2px solid #47439d;
+    color: #47439d;
     text-align: center;
     padding: 10px 25px;
     border-radius: 15px;
 }
 
-.third-button:hover {
-    background: white;
-    color: #47439d;
+#third-button:hover {
+    background: #47439d;
+    color: white;
     border: 2px solid #47439d;
     cursor: pointer;
     font-size: 16px;
 }
 
-.f-container {
-    background: white;
+.f-box {
+    display: inline-block;
+    background: #47439d;
     font-size: 18px;
     text-align: center;
+    color: white;
+}
+
+.f-box h4 {
+    font-size: 22px;
+}
+
+.text-center-copyrights {
+    font-size: 16px;
+    text-align: center;
+}
+
+#footer {
+    text-align: center;
+    font-size: 18px;
+    color: #47439d;
 }

@@ -10,7 +10,7 @@ const Header = () => {
                 <Link to="/">НАЧАЛО</Link>
               </li>
               <li>
-                <Link to="/insurances">ВИДОВЕ ЗАСТРАХОВКИ</Link>
+                <Link to="/insurances">ЗА НАС</Link>
               </li>
               <li>
                 <Link to="/companies">КОМПАНИИ</Link>
@@ -25,7 +25,10 @@ const Header = () => {
                 <Link to="/register">РЕГИСТРАЦИЯ</Link>
               </li>
               <li>
-                <Link to="/catalog">ПРОФИЛ</Link>
+                <Link to="/catalog">КАТАЛОГ</Link>
+              </li>
+              <li>
+                <Link to="/create">ДОБАВИ</Link>
               </li>
               <li>
                 <Link to="/calculator">КАЛКУЛАТОР ГОА</Link>

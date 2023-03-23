@@ -1,9 +1,14 @@
-import { Routes, Route } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 import './App.css';
+
+import * as carService from './services/carService';
+
 import { Fragment } from 'react';
 import Header from './components/Header/Header';
 import Home from './components/Home/Home';
-import Catalog from './components/Catalog/Catalog';
+import Create from './components/Catalog/Create/Create';
+import Catalog from './components/Catalog/Catalog/Catalog';
 import Insurances from './components/Insurances/Insurances';
 import Contacts from './components/Contacts/Contacts';
 import Companies from './components/Companies/Companies';
@@ -12,9 +17,30 @@ import Offers from './components/Offers/Offers';
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';
 import Footer from './components/Footer/Footer';
-import Create from './components/Create/Create';
+import { CatalogItem } from './components/Catalog/CatalogItem/CatalogItem';
 
 function App() {
+    const navigate = useNavigate();
+    const [cars, setCars] = useState([]);
+
+    useEffect(() => {
+        carService.getAll()
+        .then(result => {
+            setCars(result);
+        })
+    }, []);
+
+    const onCreateCarSubmit = async (data) => {
+
+        const newCar = await carService.create(data);
+    
+        //TODO add to state
+        setCars(state => [...state, newCar]);
+
+        //TODO redirect to catalog
+        navigate('/catalog/catalogItem')
+    }
+
     return (
         <Fragment>
             <Header />
@@ -23,8 +49,9 @@ function App() {
                     <Route path='/login' element={<Login />} />
                     <Route path='/register' element={<Register />} />
                     <Route path='/' element={<Home />} />
-                    <Route path='/create' element={<Create />} />
-                    <Route path='/catalog' element={<Catalog />} />
+                    <Route path='/catalog' element={<Catalog cars={cars} />} />
+                    <Route path='/catalog/CatalogItem' element={<CatalogItem />} />
+                    <Route path='/create' element={<Create onCreateCarSubmit={onCreateCarSubmit} />} />
                     <Route path='/insurances' element={<Insurances />} />
                     <Route path='/contacts' element={<Contacts />} />
                     <Route path='/companies' element={<Companies />} />
