@@ -44,7 +44,7 @@ function App() {
                         </div>
                         <div className="f-box">
                             <h4>Новини</h4>
-                            <input type="text" placeholder="Enter your email" />
+                            <input type="text" placeholder="Въведи своя имейл" />
                             <button className="third-button">Абонирай се</button>
                         </div>
                         <div className="clear-fix" />

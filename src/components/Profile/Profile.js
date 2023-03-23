@@ -3,10 +3,9 @@ const Profile = () => {
         <section className="myCars">
             <div className="cars">
                 <h2>МОИТЕ АВТОМОБИЛИ</h2>
-                <p>Въведете данните на автомобилите, които притежавате:</p>
                 <section id="add-car" className="view-section">
                     <form className="text-center" action="#" method="">
-                        <h1>Добави автомобил</h1>
+                        <p>Добави автомобил</p>
                         <div className="form-group">
                             <label htmlFor="title"></label>
                             <input
@@ -53,18 +52,40 @@ const Profile = () => {
                         </button>
                     </form>
                     <p>Автомобили:</p>
-                    <table className="allCars">
-                        <th>Марка</th>
-                        <th>Модел</th>
-                        <th>ДКН</th>
-                        <th>СРМПС</th>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                    </table>
+                    <div className="loadMyCars">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Марка</th>
+                                    <th>Модел</th>
+                                    <th>ДКН</th>
+                                    <th>СРМПС</th>
+                                    <th>Действия</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Опел</td>
+                                    <td>Астра</td>
+                                    <td>Е0000ЕЕ</td>
+                                    <td>012345678</td>
+                                    <td>
+                                        <div className="editDelBtn">
+                                            <a href="#" className="editDelBtn">
+                                                Edit
+                                            </a>
+                                            <a href="#" className="editDelBtn">
+                                                Delete
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+
+
                 </section>
 
             </div>
@@ -73,3 +94,19 @@ const Profile = () => {
 };
 
 export default Profile;
+
+
+
+
+<table className="allCars">
+    <th>Марка</th>
+    <th>Модел</th>
+    <th>ДКН</th>
+    <th>СРМПС</th>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+</table>

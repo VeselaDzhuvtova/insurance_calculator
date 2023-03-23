@@ -1,7 +1,7 @@
 const Table = () => {
     return (
         <section className="table">
-        <div>
+        <div className="table">
             <h4 className="of">ОФЕРТИ НА ЗАСТРАХОВАТЕЛНИТЕ КОМПАНИИ</h4>
             <table>
                 <tbody>

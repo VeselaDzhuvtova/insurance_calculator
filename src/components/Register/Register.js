@@ -6,10 +6,11 @@ const Register = () => {
             <form method="POST">
                 <label>Потребител</label>
                 <input type="text" name="username" placeholder="Username.." />
-                <label>Email</label>
+                <label>Имейл</label>
                 <input type="text" name="email" placeholder="Email.." />
                 <label>Парола</label>
                 <input type="password" name="password" placeholder="Password.." />
+                <br />
                 <label>Повтори парола</label>
                 <input
                     type="password"

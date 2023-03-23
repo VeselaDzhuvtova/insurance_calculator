@@ -55,7 +55,7 @@ a:hover {
 }
 
 .site-header {
-    background:linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.6)), url('/Images/hhh.jpg') no-repeat;
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6)), url('/Images/hhh.jpg') no-repeat;
     background-size: cover;
 }
 
@@ -178,6 +178,54 @@ h3:hover {
     width: 32%;
 }
 
+#add-car p {
+    display: inline-block;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.form-control {
+    font-family: 'Comic Neue', cursive;
+}
+
+.btn-myCars {
+    font-family: 'Comic Neue', cursive;
+    background: transparent;
+    border: 2px solid #47439d;
+    color: #47439d;
+    text-align: center;
+    padding: 10px 25px;
+    border-radius: 15px;
+}
+
+.loadMyCars table {
+    border: 1px px solid #234465;
+    padding: 1%;
+    margin: 0 auto;
+    width: 70%;
+    border-radius: 4px;
+    display: table;
+    border-collapse: separate;
+    box-sizing: border-box;
+    text-indent: initial;
+    border-spacing: 2px;
+    background: white;
+}
+
+.btn-myCars:hover {
+    color: white;
+    background: #47439d;
+}
+
+.editDelBtn {
+    color: -webkit-link;
+    cursor: pointer;
+    text-decoration: underline;
+    font-size: 18px;
+    margin-right: 10px;
+    text-align: center;
+}
+
 .goa {
     font-family: 'Comic Neue', cursive;
     color: white;
@@ -229,7 +277,8 @@ label {
 }
 
 
-.btn-ins-button, .back-button {
+.btn-ins-button,
+.back-button {
     font-size: 16px;
     font-family: 'Comic Neue', cursive;
     background: transparent;
@@ -273,8 +322,65 @@ label {
     margin-top: 10px;
 }
 
+input[type=text] {
+    display: inline-block;
+    font-size: 18px;
+    margin-right: 4px;
+}
+
+.login-box,
+.register-box {
+    text-align: center;
+}
+
+.login-box label {
+    color: #47439d;
+    font-size: 16px;
+    font-weight: 600;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.register-box label {
+    color: #47439d;
+    font-size: 16px;
+    font-weight: 600;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+input[type=password] {
+    display: inline-block;
+    font-size: 18px;
+    color: #47439d;
+    margin-right: 10px;
+}
+
+input[type=submit] {
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: 'Comic Neue', cursive;
+    background: white;
+    border: 2px solid #47439d;
+    color: #47439d;
+    text-align: center;
+    padding: 10px 15px;
+    border-radius: 15px;
+    margin-right: 5px;
+    margin-top: 10px;
+}
+
+input[type=submit]:hover {
+    background: #47439d;
+    color: white;
+    border: 2px solid #47439d;
+    cursor: pointer;
+    font-size: 16px;
+}
+
 .allCars {
-    width:80%;
+    width: 80%;
     background: white;
     font-size: 16px;
     font-weight: 700;
@@ -318,20 +424,23 @@ label {
 }
 
 table {
-    width:80%;
-    background: #47439d;
+    width: 80%;
+    background: white;
     font-size: 20px;
     font-weight: 700;
     text-align: center;
     margin: 0 auto;
 }
 
-table, th, td {
+table,
+th,
+td {
     border: 1px solid black;
     border-collapse: collapse;
 }
 
-th, td {
+th,
+td {
     padding: 10px;
 }
 
@@ -344,8 +453,26 @@ th, td {
     text-align: center;
 }
 
-.f-box {
-    font-size: 18px;
-    text-align: center; 
+.third-button {
+    font-size: 16px;
+    font-family: 'Comic Neue', cursive;
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+    text-align: center;
+    padding: 10px 25px;
+    border-radius: 15px;
 }
 
+.third-button:hover {
+    background: white;
+    color: #47439d;
+    border: 2px solid #47439d;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.f-box {
+    font-size: 18px;
+    text-align: center;
+}
