@@ -26,6 +26,14 @@ nav {
     font-size: 18px;
 }
 
+#user, #guest {
+    display: inline-block;
+    padding-right: 10px;
+    text-decoration: none;
+    color: black;
+    margin-right: 15px;
+}
+
 li {
     display: inline-block;
     padding-right: 10px;
