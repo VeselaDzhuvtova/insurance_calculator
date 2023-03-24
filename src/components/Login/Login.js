@@ -11,7 +11,7 @@ const LoginFormKeys = {
 
 export const Login = () => {
     const { onLoginSubmit } = useContext(AuthContext);
-    const { values, changeHandler } = useForm({
+    const { values, changeHandler, onSubmit } = useForm({
         [LoginFormKeys.Email]: '',
         [LoginFormKeys.Password]: '',
     }, onLoginSubmit);
@@ -19,16 +19,18 @@ export const Login = () => {
     return (
         <div className="login-box">
             <h1>Вход</h1>
-            <form id="login" method="POST" onSubmit={onLoginSubmit}>
+            <form id="login" method="POST" onSubmit={onSubmit}>
                 <label>Имейл</label>
-                <input type="text"
+                <input
+                    type="text"
                     name={LoginFormKeys.Email}
                     placeholder="Email.."
                     value={values[LoginFormKeys.Email]}
                     onChange={changeHandler}
                 />
                 <label>Парола</label>
-                <input type="password"
+                <input
+                    type="password"
                     name={LoginFormKeys.Password}
                     placeholder="Password.."
                     value={values[LoginFormKeys.Password]}
@@ -39,8 +41,8 @@ export const Login = () => {
             <p>
                 Нямаш акаунт? <a href="/Register">Регистрация</a>
             </p>
+            <h3 className="noCars">Грешно потребителско име или парола</h3>
         </div>
-
     );
 };
 

@@ -4,6 +4,7 @@ import './App.css';
 
 import * as carService from './services/carService';
 import { AuthContext } from './contexts/authContext';
+import * as authService from './services/authService';
 
 import { Fragment } from 'react';
 import Header from './components/Header/Header';
@@ -44,11 +45,31 @@ function App() {
     };
 
     const onLoginSubmit = async (data) => {
-        console.log(data)
+        
+        try {
+            const result = await authService.login(data);
+            
+            setAuth(result);
+
+            navigate('/insurances')
+        } catch(error) {
+            console.log('Грешно потребителско име или парола')
+        };  
+
     };
 
+    const context = {
+        onLoginSubmit,
+        userId: auth._id,
+        token: auth.accessToken,
+        userEmail: auth.email,
+        isAuthenticated() {
+            return !!auth.accessToken
+        },
+    }
+
     return (
-        <AuthContext.Provider value={{onLoginSubmit}}>
+        <AuthContext.Provider value={context}>
             <Fragment>
                 <Header />
                 <main>
