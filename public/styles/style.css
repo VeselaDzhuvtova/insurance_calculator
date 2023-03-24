@@ -17,7 +17,7 @@ body {
     width: 420px;
 }
 
-header nav>* {
+header nav > * {
     float: left;
 }
 
@@ -34,6 +34,7 @@ li {
 a {
     text-decoration: none;
     color: black;
+    margin-right: 15px;
 }
 
 ul {
@@ -126,6 +127,8 @@ h2 {
     color: white;
     background: #47439d;
     padding: 20px 30px;
+    text-align: center;
+
 }
 
 .insurances img {
@@ -291,59 +294,44 @@ label {
 }
 
 .btn-ins-button {
-    margin-top: 70px;
+    margin-top: 40px;
 }
 
 .back-button {
-    margin-top: 20px;
+    margin-top: 40px;
 }
 
 .cars {
     max-width: 1600px;
     min-height: 600px;
-}
-
-#form-group {
-    position: relative;
-    width: 800px;
-    height: auto;
-    border-radius: 20px;
-    padding: 40px;
-    box-sizing: border-box;
     text-align: center;
-    background: #3e4443;
-    box-shadow: 0px 0px 32px 0px #32485e, -14px -14px 20px #191c21;
 }
 
-#text-center {
-    position: relative;
-    width: 800px;
+.text-center {
+    font-family: 'Comic Neue', cursive;
+    width: 700px;
     height: auto;
-    border-radius: 20px;
+    margin: auto;
     color: #47439d;
-    padding: 40px;
-    box-sizing: border-box;
-    text-align: center;
-    background: #3e4443;
-    box-shadow: 0px 0px 32px 0px #32485e, -14px -14px 20px #191c21;
-}
-
-#text-center > h3 {
-    color: #47439d;
-}
-
-#text-center > label {
-    color:#47439d;
-}
-
-#text-center input[type="text"] {
-    background: white;
-    padding: 30px;
-    padding-left: 20px;
-    height: 50px;
-    margin-top: 10px;
-    font-size: 16px;
     border-radius: 15px;
+    padding: 40px;
+    text-align: center;
+    background: white;
+    box-shadow: 0px 0px 32px 0px #47439d, -14px -14px 20px #803ea6;
+}
+
+.text-center h3 {
+    color: #47439d;
+}
+
+.text-center input[type="text"] {
+    background: white;
+    font-family: 'Comic Neue', cursive;
+    height: 35px;
+    margin-top: 10px;
+    margin-right: 10px;
+    font-size: 16px;
+    border-radius: 10px;
     box-shadow: inset 6px 6px 6px #c0c2c5, inset -6px -6px 6px white;
 }
 
@@ -417,7 +405,21 @@ input[type=submit] {
     text-align: center;
     border-radius: 10px;
     margin: 0 auto;
+    margin-top: 80px;
     padding: 20px;
+    height: auto;
+    width: 900px;
+    color: #47439d;
+}
+
+.newCar {
+    background-color: transparent;
+    box-shadow: 0px 0px 40px 0px;
+    overflow: hidden;
+    text-align: center;
+    border-radius: 10px;
+    margin: 0 auto;
+    padding: 10px;
     height: auto;
     width: 900px;
     color: #47439d;
@@ -426,11 +428,21 @@ input[type=submit] {
 #add-car>h2 {
     color: #47439d;
     font-family:  'Comic Neue', cursive;
-    font-size: 32px;
+    font-size: 22px;
     font-weight: 700;
     margin-top: 10px;
     text-transform: uppercase;
     text-align: center;
+}
+
+#add-car h3 {
+    color: #47439d;
+    font-family:  'Comic Neue', cursive;
+    font-size: 18px;
+    font-weight: 700;
+    margin-top: 10px;
+    text-transform: uppercase;
+    text-align: center; 
 }
 
 input[type=submit]:hover {
@@ -550,4 +562,11 @@ td {
     text-align: center;
     font-size: 18px;
     color: #47439d;
+    margin-top: 100px;
+}
+
+#footer h3 {
+    text-align: center;
+    color: #47439d;
+
 }

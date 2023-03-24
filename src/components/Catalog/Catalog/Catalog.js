@@ -7,6 +7,10 @@ const Catalog = ({
         <section className="myCars">
             <div className="cars">
                 <h2>МОИТЕ АВТОМОБИЛИ</h2>
+
+                <a href="/create" className="newCar">
+                        Добави
+                    </a>
                 {cars.map(x =>
                     <CatalogItem key={x._id} {...x} />
                 )}

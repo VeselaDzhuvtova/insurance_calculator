@@ -1,21 +1,22 @@
+import { Link } from "react-router-dom";
+
 export const CatalogItem = ({
+    _id,
     marka,
     model,
     number,
-    docum
 }) => {
     return (
         <section id="add-car">
-            <h2>Автомобили</h2>
+            <h2>Автомобил:</h2>
             <div className="allCars">
                 <div className="allCars-info">
                     <h3>{marka}</h3>
                     <h3>{model}</h3>
                     <h3>{number}</h3>
-                    <h3>{docum}</h3>
-                    <a href="#" className="editDelBtn">
-                        Добави
-                    </a>
+                    <Link to={`/catalog/${_id}`} className="editDelBtn">
+                        Детайли
+                    </Link>
                     <a href="#" className="editDelBtn">
                         Промени
                     </a>
