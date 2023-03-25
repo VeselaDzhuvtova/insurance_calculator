@@ -77,7 +77,7 @@ a:hover {
     padding: 30px 100px 200px 500px;
 }
 
-.site-header button {
+.site-header .btn_submit {
     font-size: 16px;
     font-family: 'Comic Neue', cursive;
     background: transparent;
@@ -152,11 +152,11 @@ h2 {
     color: white;
 }
 
-h3 {
+.insurances h3 {
     color: white;
 }
 
-h3:hover {
+.insurances h3:hover {
     color: white;
 }
 
@@ -526,7 +526,7 @@ td {
     padding: 10px;
 }
 
-.noCars {
+.login-box h3 {
     color: crimson;
 }
 

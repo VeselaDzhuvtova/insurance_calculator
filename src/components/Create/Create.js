@@ -25,9 +25,17 @@ export const Create = ({
         onCreateCarSubmit(values);
     };
 
+    const isValid = ({value}) => {
+        let regExp = /^[АВНРТСМОЕКХУABHPTCMOEKXY]{1,2}[0-9]{4}[АВНРТСМОЕКХУABHPTCMOEKXY0123456789]{1,2}$/;
+        if(regExp.test(value.number))
+            return true;
+        else
+            return false;
+    };
+
     return (
         <div className="text-center">
-            <form id='create' onSubmit={onSubmit}>
+            <form id='create' method="post" onSubmit={onSubmit}>
                 <div className="form-group">
                     <h3>Добави автомобил</h3>
                     <label htmlFor="marka"></label>
@@ -52,7 +60,9 @@ export const Create = ({
                     <input type="text"
                         value={values.number}
                         onChange={onChangeHandler}
-                        id="number" name="number"
+                        isValid={isValid}
+                        id="number" 
+                        name="number"
                         placeholder="ДКН"
                     />
                     <label htmlFor="docum"></label>

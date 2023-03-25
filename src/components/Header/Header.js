@@ -10,7 +10,6 @@ const Header = () => {
       <section className="navigation">
         <nav>
           <div>
-              <span>{`Здравей, ${userEmail} `}</span>
           <Link to="/">НАЧАЛО</Link>
 
           <Link to="/insurances">ПРОДУКТИ</Link>
@@ -30,15 +29,15 @@ const Header = () => {
               <Link to="/calculator">КАЛКУЛАТОР</Link>
 
               <Link to="/logout">ИЗХОД</Link>
+              <span>{` Здравей, ${userEmail} `}</span>
             </div>
           )}
-
             </div>
         </nav>
       </section>
       <section className="site-header">
         <h1>верен приятел винаги до теб...</h1>
-        <button>НАУЧИ ПОВЕЧЕ</button>
+        <input type="submit" className="btn_submit" value="Научи повече" />
       </section>
     </header >
   );

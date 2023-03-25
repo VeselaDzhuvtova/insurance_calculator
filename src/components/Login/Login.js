@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { Link } from "react-router-dom";
 
 import { AuthContext } from "../../contexts/authContext";
 import { useForm } from "../../hooks/useForm";
@@ -39,7 +40,7 @@ export const Login = () => {
                 <input type="submit" className="btn_submit" value="Login" />
             </form>
             <p>
-                Нямаш акаунт? <a href="/Register">Регистрация</a>
+                Нямаш акаунт? <Link to="/Register">Регистрация</Link>
             </p>
             <h3 className="noCars">Грешно потребителско име или парола</h3>
         </div>

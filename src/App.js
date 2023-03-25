@@ -16,6 +16,7 @@ import Companies from './components/Companies/Companies';
 import Calculator from './components/Calculator/Calculator';
 import Offers from './components/Offers/Offers';
 import { Login } from './components/Login/Login';
+import { Logout } from './components/Logout/Logout';
 import Register from './components/Register/Register';
 import Footer from './components/Footer/Footer';
 import CatalogItem from './components/Catalog/CatalogItem/CatalogItem';
@@ -58,8 +59,33 @@ function App() {
 
     };
 
-    const context = {
+    const onRegisterSubmit = async (values) => {
+        const {repetPassword, ...registerData} = values;
+        if (repetPassword !== registerData.password) {
+            return;
+        }
+        
+        try {
+            const result = await authService.register(registerData);
+
+            setAuth(result);
+
+            navigate('/insurances')
+        } catch (error) {
+            console.log('Грешка при регистрация')
+        }
+    };
+
+    const onLogout = async () => {
+        // await authService.logout();
+
+        setAuth({});
+    }
+
+    const contextValues = {
         onLoginSubmit,
+        onRegisterSubmit,
+        onLogout,
         userId: auth._id,
         token: auth.accessToken,
         userEmail: auth.email,
@@ -67,12 +93,13 @@ function App() {
     };
 
     return (
-        <AuthContext.Provider value={context}>
+        <AuthContext.Provider value={contextValues}>
             <Fragment>
                 <Header />
                 <main>
                     <Routes>
                         <Route path='/login' element={<Login />} />
+                        <Route path='/logout' element={<Logout />} />
                         <Route path='/register' element={<Register />} />
                         <Route path='/' element={<Home />} />
                         <Route path='/catalog' element={<Catalog cars={cars} />} />
