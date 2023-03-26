@@ -1,55 +1,4 @@
-import React, { useState } from 'react';
-
 const Calculator = () => {
-    const [insurancePrice, setInsurancePrice] = useState(0);
-    const [formData, setFormData] = useState({
-      typeSelect: 1,
-      dvigatelSelect: 1800,
-    });
-  
-    const handleFormChange = (e) => {
-      setFormData((prevState) => ({
-        ...prevState,
-        [e.target.name]: e.target.value,
-      }));
-    };
-  
-    const handleCalculatePrice = (e) => {
-      e.preventDefault();
-      // генериране на цена
-      let price = 0;
-      if (formData.typeSelect === "1") {
-        if (formData.dvigatelSelect === "1200") {
-          price = 150;
-        } else if (formData.dvigatelSelect === "1500") {
-          price = 180;
-        } else if (formData.dvigatelSelect === "1800") {
-          price = 218.5;
-        } else if (formData.dvigatelSelect === "2000") {
-          price = 280;
-        } else if (formData.dvigatelSelect === "2500") {
-          price = 400;
-        } else if (formData.dvigatelSelect === "3000") {
-          price = 560;
-        } else if (formData.dvigatelSelect === "3001") {
-          price = 700;
-        }
-      } else if (formData.typeSelect === "2") {
-        // TODO: добавете логика за генериране на цена за товарен автомобил
-      } else if (formData.typeSelect === "3") {
-        // TODO: добавете логика за генериране на цена за мотопед
-      } else if (formData.typeSelect === "4") {
-        // TODO: добавете логика за генериране на цена за мотоциклет
-      } else if (formData.typeSelect === "7") {
-        // TODO: добавете логика за генериране на цена за товарно ремарке
-      } else if (formData.typeSelect === "8") {
-        // TODO: добавете логика за генериране на цена за седлови влекач
-      } else if (formData.typeSelect === "9") {
-        // TODO: добавете логика за генериране на цена за автобус
-      }
-      setInsurancePrice(price);
-    };
-  
     return (
         <section className="goa">
             <div id="price">
@@ -383,7 +332,7 @@ const Calculator = () => {
                                 </select>
                             </div>
                         </div>
-                        <button onClick={handleCalculatePrice} type="button" className="btn-ins-button" id="calculate">
+                        <button type="button" className="btn-ins-button" id="calculate">
                             Изчисли
                         </button>
                     </div>

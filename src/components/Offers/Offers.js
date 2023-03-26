@@ -1,80 +1,18 @@
+import calculatePrice from "../InsuranceCalculator/insuranceCalculator";
 const Offers = () => {
+
     return (
-        <section className="table">
-        <div className="table">
-            <h4 className="of">ОФЕРТИ НА ЗАСТРАХОВАТЕЛНИТЕ КОМПАНИИ</h4>
-            <table>
-                <tbody>
-                    <tr>
-                        <th>КОМПАНИЯ</th>
-                        <th>ЕДНОКРАТНО</th>
-                        <th>НА 2 ВНОСКИ</th>
-                        <th>НА 4 ВНОСКИ</th>
-                    </tr>
-                    <tr>
-                        <td>Bul ins</td>
-                        <td>200лв.</td>
-                        <td>100 + 100 = 200лв.</td>
-                        <td>50 + 50 + 50 + 50 = 200лв.</td>
-                    </tr>
-                    <tr>
-                        <td>Bul ins</td>
-                        <td>200</td>
-                        <td>100 + 100 = 200</td>
-                        <td>50 + 50 + 50 + 50 = 200</td>
-                    </tr>
-                    <tr>
-                        <td>Bul ins</td>
-                        <td>200</td>
-                        <td>100 + 100 = 200</td>
-                        <td>50 + 50 + 50 + 50 = 200</td>
-                    </tr>
-                    <tr>
-                        <td>Bul ins</td>
-                        <td>200</td>
-                        <td>100 + 100 = 200</td>
-                        <td>50 + 50 + 50 + 50 = 200</td>
-                    </tr>
-                    <tr>
-                        <td>Bul ins</td>
-                        <td>200</td>
-                        <td>100 + 100 = 200</td>
-                        <td>50 + 50 + 50 + 50 = 200</td>
-                    </tr>
-                    <tr>
-                        <td>Bul ins</td>
-                        <td>200</td>
-                        <td>100 + 100 = 200</td>
-                        <td>50 + 50 + 50 + 50 = 200</td>
-                    </tr>
-                    <tr>
-                        <td>Bul ins</td>
-                        <td>200</td>
-                        <td>100 + 100 = 200</td>
-                        <td>50 + 50 + 50 + 50 = 200</td>
-                    </tr>
-                    <tr>
-                        <td>Bul ins</td>
-                        <td>200</td>
-                        <td>100 + 100 = 200</td>
-                        <td>50 + 50 + 50 + 50 = 200</td>
-                    </tr>
-                    <tr>
-                        <td>Bul ins</td>
-                        <td>200</td>
-                        <td>100 + 100 = 200</td>
-                        <td>50 + 50 + 50 + 50 = 200</td>
-                    </tr>
-                    <tr>
-                        <td>Bul ins</td>
-                        <td>200</td>
-                        <td>100 + 100 = 200</td>
-                        <td>50 + 50 + 50 + 50 = 200</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </section>
+        <section className="add-car">
+            <div className="allCars">
+                <div className='allCars-info'>
+                    <h4 className="of">ОФЕРТИ</h4>
+                    <h3>Компания</h3>
+                    <h3>{calculatePrice}</h3>
+                    <h3>2вн</h3>
+                    <h3>4 вн</h3>
+                </div>
+            </div>
+        </section>
     );
 };
 
