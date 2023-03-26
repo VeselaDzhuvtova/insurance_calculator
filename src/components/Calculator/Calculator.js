@@ -12,7 +12,6 @@ const Calculator = () => {
                                 className="form-control-step1"
                                 name="typeSelect"
                                 id="typeSelect"
-                                fdprocessedid="txjrj"
                             >
                                 <option value={0}>Изберете</option>
                                 <option value={1}>Лек автомобил</option>
@@ -61,7 +60,6 @@ const Calculator = () => {
                                     className="form-control-step1"
                                     name="dvigatelSelect"
                                     id="dvigatelSelect"
-                                    fdprocessedid="857mdc"
                                 >
                                     <option value={0}>Изберете</option>
                                     <option value={1200}>до 1200 куб. см.</option>
@@ -81,7 +79,6 @@ const Calculator = () => {
                                     className="form-control-step1"
                                     name="dvigatelType"
                                     id="dvigatelType"
-                                    fdprocessedid="5k0g5g"
                                 >
                                     <option value={0}>Изберете</option>
                                     <option value={1}>Бензин</option>
@@ -102,7 +99,6 @@ const Calculator = () => {
                                     className="label-tooltip"
                                     data-toggle="tooltip"
                                     title=""
-                                    data-original-title="Мощност по данни от регистрационния талон на МПС (вижте поле (Р.2) от регистрационния талон)."
                                 />
                             </label>
                             <div className="ins-dd">
@@ -110,7 +106,6 @@ const Calculator = () => {
                                     className="form-control-step1"
                                     name="ksiliSelect"
                                     id="ksiliSelect"
-                                    fdprocessedid="qc8zgi"
                                 >
                                     <option value={0}>Изберете</option>
                                     <option value={66}>до 66 kW (90 к.с.) вкл. </option>
@@ -131,7 +126,6 @@ const Calculator = () => {
                                     className="form-control-step1"
                                     name="numberSelect"
                                     id="numberSelect"
-                                    fdprocessedid="tn5mwh"
                                 >
                                     <option value={0}>Изберете</option>
                                     <option value={2}>1+1 места</option>
@@ -151,7 +145,6 @@ const Calculator = () => {
                                     className="label-tooltip"
                                     data-toggle="tooltip"
                                     title=""
-                                    data-original-title="Година на първа регистрация по данни от регистационния талон на МПС (вижте поле (В.) от регистрационния талон)."
                                 />
                             </label>
                             <div className="ins-dd">
@@ -189,7 +182,6 @@ const Calculator = () => {
                                     className="form-control-step1"
                                     name="usefor"
                                     id="usefor"
-                                    fdprocessedid="xsett7"
                                 >
                                     <option value={0}>Изберете</option>
                                     <option value={1}>Лично ползване</option>
@@ -209,7 +201,6 @@ const Calculator = () => {
                                     className="label-tooltip"
                                     data-toggle="tooltip"
                                     title=""
-                                    data-original-title="Моля, изберете с кои букви започва регистрационният номер. Ако превозното средство все още не е регистрирано, изберете буквите, с които ще започва регистрационният номер."
                                 />
                             </label>
                             <div className="ins-dd">
@@ -217,7 +208,6 @@ const Calculator = () => {
                                     className="form-control-step1"
                                     name="reg_no"
                                     id="reg_no"
-                                    fdprocessedid="4blgac"
                                 >
                                     <option value="" />
                                     <option value="CA">C, CA, CB - София-град</option>
