@@ -1,3 +1,4 @@
+import React from "react";
 import { Link } from "react-router-dom";
 
 const Calculator = () => {
@@ -107,8 +108,8 @@ const Calculator = () => {
                                 <div className="ins-dd">
                                     <select
                                         className="form-control-step1"
-                                        name="ksiliSelect"
-                                        id="ksiliSelect"
+                                        name="kwSelect"
+                                        id="kwSelect"
                                     >
                                         <option value={0}>Изберете</option>
                                         <option value={66}>до 66 kW (90 к.с.) вкл. </option>

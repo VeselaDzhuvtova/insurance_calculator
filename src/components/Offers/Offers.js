@@ -1,14 +1,14 @@
-const Offers = () => {
+import React from 'react';
 
+const Offers = () => {
     return (
-        <section className="add-car">
-            <div className="allCars">
+        <section>
+            <h4 className="of">ОФЕРТИ</h4>
+
+            <div className="offers">
                 <div className='allCars-info'>
-                    <h4 className="of">ОФЕРТИ</h4>
-                    <h3>Компания</h3>
-                    <h3>цена</h3>
-                    <h3>2вн</h3>
-                    <h3>4 вн</h3>
+                    <h3>Компания:</h3>
+                    <h3>Еднократна цена: лв.</h3>
                 </div>
             </div>
         </section>

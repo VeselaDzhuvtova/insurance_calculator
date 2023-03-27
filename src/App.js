@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import './App.css';
+import React from 'react';
 
-import * as carService from './services/carService';
+import  carServiceFactory from './services/carService'
 import { AuthContext } from './contexts/authContext';
-import * as authService from './services/authService';
+import  authServiceFactory  from './services/authService';
 
 import { Fragment } from 'react';
 import Header from './components/Header/Header';
@@ -26,7 +27,9 @@ function App() {
     const navigate = useNavigate();
     const [cars, setCars] = useState([]);
     const [auth, setAuth] = useState({});
-
+    const carService = carServiceFactory(auth.accessToken);
+    const authService = authServiceFactory(auth.accessToken);
+    
     useEffect(() => {
         carService.getAll()
             .then(result => {
@@ -77,7 +80,7 @@ function App() {
     };
 
     const onLogout = async () => {
-        // await authService.logout();
+        await authService.logout();
 
         setAuth({});
     }

@@ -404,7 +404,7 @@ input[type=submit] {
     margin-top: 10px;
 }
 
-#add-car {
+#add-car, .offers {
     background-color: transparent;
     box-shadow: 0px 0px 40px 0px;
     overflow: hidden;
