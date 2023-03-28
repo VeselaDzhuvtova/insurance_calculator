@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 
-import { AuthContext } from '../../contexts/authContext';
+import AuthContext from '../../contexts/authContext';
 
 const Header = () => {
   const { isAuthenticated, userEmail } = useContext(AuthContext);
@@ -25,7 +25,7 @@ const Header = () => {
           {isAuthenticated && (
             <div id='user'>
               <Link to="/catalog">КАТАЛОГ</Link>
-
+              <Link to="/create"></Link>
               <Link to="/calculator">КАЛКУЛАТОР</Link>
 
               <Link to="/offers"></Link>

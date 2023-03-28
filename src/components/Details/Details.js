@@ -1,18 +1,17 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { useService } from '../../hooks/useService';
 
-import { carServiceFactory } from '../../services/carService';
+import * as carService from '../../services/carService';
+
 export const Details = () => {
     const { carId } = useParams();
     const [carDetails, setCar] = useState({});
-    const carService = useService(carServiceFactory);
     
     useEffect(() => {
         carService.getOne(carId)
-        .then(result => {
-            setCar(result);
-        });
+            .then(result => {
+                setCar(result);
+            });
     }, [carId]);
 
     return (

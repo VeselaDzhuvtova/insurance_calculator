@@ -27,7 +27,7 @@ export const Create = ({
 
     return (
         <div className="text-center">
-            <form id='create' method="post" onSubmit={onSubmit}>
+            <form id='create' method="POST" onSubmit={onSubmit}>
                 <div className="form-group">
                     <h3>Добави автомобил</h3>
                     <label htmlFor="marka"></label>

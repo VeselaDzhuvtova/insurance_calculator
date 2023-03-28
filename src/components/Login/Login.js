@@ -1,8 +1,8 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 
-import { AuthContext } from "../../contexts/authContext";
-import { useForm } from "../../hooks/useForm";
+import AuthContext from "../../contexts/authContext";
+import useForm from "../../hooks/useForm";
 
 
 const LoginFormKeys = {
@@ -42,6 +42,7 @@ const Login = () => {
             <p>
                 Нямаш акаунт? <Link to="/Register">Регистрация</Link>
             </p>
+            
             <h3 className="noCars">Грешно потребителско име или парола</h3>
         </div>
     );
