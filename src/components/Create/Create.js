@@ -32,7 +32,7 @@ export const Create = ({
                     <h3>Добави автомобил</h3>
                     <label htmlFor="marka"></label>
                     <input
-                        value={values.marka}
+                        value={values.marka ?? ''}
                         onChange={onChangeHandler}
                         type="text"
                         id="marka"
@@ -41,7 +41,7 @@ export const Create = ({
                     />
                     <label htmlFor="model"></label>
                     <input
-                        value={values.model}
+                        value={values.model ?? ''}
                         onChange={onChangeHandler}
                         type="text"
                         id="model"
@@ -50,14 +50,15 @@ export const Create = ({
                     />
                     <label htmlFor="number"></label>
                     <input type="text"
-                        value={values.number}
+                        value={values.number ?? ''}
                         onChange={onChangeHandler}
                         id="number" 
                         name="number"
                         placeholder="ДКН"
                     />
                     <label htmlFor="docum"></label>
-                    <input value={values.docum}
+                    <input 
+                    value={values.docum ?? ''}
                         onChange={onChangeHandler}
                         type="text" id="docum"
                         name="docum"
@@ -65,7 +66,7 @@ export const Create = ({
                     />
                     <label htmlFor="vin"></label>
                     <input
-                        value={values.vin}
+                        value={values.vin ?? ''}
                         onChange={onChangeHandler}
                         type="text"
                         id="vin"
@@ -74,7 +75,7 @@ export const Create = ({
                     />
                     <label htmlFor="registration"></label>
                     <input
-                        value={values.registration}
+                        value={values.registration ?? ''}
                         onChange={onChangeHandler}
                         type="text"
                         id="registration"
@@ -83,7 +84,7 @@ export const Create = ({
                     />
                     <label htmlFor="firstName"></label>
                     <input
-                        value={values.firstName}
+                        value={values.firstName ?? ''}
                         onChange={onChangeHandler}
                         type="text"
                         id="firstName"
@@ -92,7 +93,7 @@ export const Create = ({
                     />
                     <label htmlFor="secondName"></label>
                     <input
-                        value={values.secondName}
+                        value={values.secondName ?? ''}
                         onChange={onChangeHandler}
                         type="text"
                         id="secondName"

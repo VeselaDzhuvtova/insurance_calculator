@@ -26,7 +26,7 @@ const Login = () => {
                     type="text"
                     name={LoginFormKeys.Email}
                     placeholder="Email.."
-                    value={values[LoginFormKeys.Email]}
+                    value={values[LoginFormKeys.Email] ?? ''}
                     onChange={changeHandler}
                 />
                 <label>Парола</label>
@@ -34,7 +34,7 @@ const Login = () => {
                     type="password"
                     name={LoginFormKeys.Password}
                     placeholder="Password.."
-                    value={values[LoginFormKeys.Password]}
+                    value={values[LoginFormKeys.Password] ?? ''}
                     onChange={changeHandler}
                 />
                 <input type="submit" className="btn_submit" value="Login" />

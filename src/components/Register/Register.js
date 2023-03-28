@@ -22,14 +22,14 @@ const Register = () => {
                 type="text" 
                 name="email" 
                 placeholder="Имейл.."
-                value={values.email}
+                value={values.email ?? ''}
                 onChange={changeHandler} />
                 <label>Парола</label>
                 <input 
                 type="password" 
                 name="password" 
                 placeholder="Парола.."
-                value={values.password}
+                value={values.password ?? ''}
                 onChange={changeHandler}  />
                 <br />
                 <label>Повтори парола</label>
@@ -37,7 +37,7 @@ const Register = () => {
                     type="password"
                     name="repeatPassword"
                     placeholder="Повтори парола.."
-                    value={values.repeatPassword}
+                    value={values.repeatPassword ?? ''}
                     onChange={changeHandler} 
                 />
                 <input type="submit" className="btn_submit" value="Submit" />
