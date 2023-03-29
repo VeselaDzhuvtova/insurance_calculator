@@ -3,7 +3,7 @@ import { Routes, Route, useNavigate } from 'react-router-dom';
 import './App.css';
 import React from 'react';
 
-import  * as carService from './services/carService'
+import * as carService from './services/carService'
 import AuthContext from './contexts/authContext';
 import * as authService from './services/authService';
 
@@ -16,8 +16,8 @@ import Insurances from './components/Insurances/Insurances';
 import Companies from './components/Companies/Companies';
 import Calculator from './components/Calculator/Calculator';
 import Offers from './components/Offers/Offers';
-import Login  from './components/Login/Login';
-import Logout  from './components/Logout/Logout';
+import Login from './components/Login/Login';
+import Logout from './components/Logout/Logout';
 import Register from './components/Register/Register';
 import Footer from './components/Footer/Footer';
 import CatalogItem from './components/Catalog/CatalogItem/CatalogItem';
@@ -27,7 +27,11 @@ function App() {
     const navigate = useNavigate();
     const [cars, setCars] = useState([]);
     const [auth, setAuth] = useState({});
-    
+
+    const userLogin = (authData) => {
+        setAuth(authData);
+    }
+
     useEffect(() => {
         carService.getAll()
             .then(result => {
@@ -46,77 +50,77 @@ function App() {
         navigate('/catalog')
     }
 
-    const onLoginSubmit = async (data) => {
-        
-        try {
-            const result = await authService.login(data);
-            
-            setAuth(result);
+    // const onLoginSubmit = async (data) => {
 
-            navigate('/insurances')
-        } catch(error) {
-            console.log('Грешно потребителско име или парола')
-        };  
+    //     try {
+    //         const result = await authService.login(data);
 
-    };
+    //         setAuth(result);
 
-    const onRegisterSubmit = async (values) => {
-        const {repetPassword, ...registerData} = values;
-        if (repetPassword !== registerData.password) {
-            return;
-        }
-        
-        try {
-            const result = await authService.register(registerData);
+    //         navigate('/insurances')
+    //     } catch(error) {
+    //         console.log('Грешно потребителско име или парола')
+    //     };  
 
-            setAuth(result);
+// };
 
-            navigate('/insurances')
-        } catch (error) {
-            console.log('Грешка при регистрация')
-        }
-    };
-
-    const onLogout = async () => {
-        await authService.logout();
-
-        setAuth({});
+const onRegisterSubmit = async (values) => {
+    const { repetPassword, ...registerData } = values;
+    if (repetPassword !== registerData.password) {
+        return;
     }
 
-    const contextValues = {
-        onLoginSubmit,
-        onRegisterSubmit,
-        onLogout,
-        userId: auth._id,
-        token: auth.accessToken,
-        userEmail: auth.email,
-        isAuthenticated: !!auth.accessToken
-    };
+    try {
+        const result = await authService.register(registerData);
 
-    return (
-        <AuthContext.Provider value={contextValues}>
-            <Fragment>
-                <Header />
-                <main>
-                    <Routes>
-                        <Route path='/login' element={<Login />} />
-                        <Route path='/logout' element={<Logout />} />
-                        <Route path='/register' element={<Register />} />
-                        <Route path='/' element={<Home />} />
-                        <Route path='/catalog' element={<Catalog cars={cars} />} />
-                        <Route path='/catalog/CatalogItem' element={<CatalogItem />} />
-                        <Route path='/create' element={<Create onCreateCarSubmit={onCreateCarSubmit} />} />
-                        <Route path='/insurances' element={<Insurances />} />
-                        <Route path='/companies' element={<Companies />} />
-                        <Route path='/calculator' element={<Calculator />} />
-                        <Route path='/offers' element={<Offers />} />
-                        <Route path='/catalog/:carId' element={<Details />} />
-                    </Routes>
-                </main>
-                <Footer />
-            </Fragment>
-        </AuthContext.Provider>
-    );
+        setAuth(result);
+
+        navigate('/insurances')
+    } catch (error) {
+        console.log('Грешка при регистрация')
+    }
+};
+
+const onLogout = async () => {
+    await authService.logout();
+
+    setAuth({});
+}
+
+// const contextValues = {
+//     // onLoginSubmit,
+//     onRegisterSubmit,
+//     onLogout,
+//     userId: auth._id,
+//     token: auth.accessToken,
+//     userEmail: auth.email,
+//     isAuthenticated: !!auth.accessToken
+// };
+
+return (
+    <AuthContext.Provider value={{ user: auth, userLogin }}>
+        <Fragment>
+            <Header />
+            <main>
+                <Routes>
+                    <Route path='/login' element={<Login />} />
+                    <Route path='/logout' element={<Logout />} />
+                    <Route path='/register' element={<Register />} />
+                    <Route path='/' element={<Home />} />
+                    <Route path='/catalog' element={<Catalog cars={cars} />} />
+                    <Route path='/catalog/CatalogItem' element={<CatalogItem />} />
+                    <Route path='/create' element={<Create onCreateCarSubmit={onCreateCarSubmit} />} />
+                    <Route path='/insurances' element={<Insurances />} />
+                    <Route path='/companies' element={<Companies />} />
+                    <Route path='/calculator' element={<Calculator />} />
+                    <Route path='/offers' element={<Offers />} />
+                    <Route path='/catalog/:carId' element={<Details />} />
+                </Routes>
+            </main>
+            <Footer />
+        </Fragment>
+    </AuthContext.Provider>
+);
 }
 
 export default App;

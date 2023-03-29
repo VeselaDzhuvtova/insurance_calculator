@@ -1,21 +1,33 @@
-import { useContext } from "react";
 import { Link } from "react-router-dom";
-
-import AuthContext from "../../contexts/authContext";
-import useForm from "../../hooks/useForm";
-
-
-const LoginFormKeys = {
-    Email: 'email',
-    Password: 'password'
-};
+import * as authService from '../../services/authService';
+import { useNavigate } from "react-router-dom";
+import  AuthContext from '../../contexts/authContext';
+import { useContext } from "react";
 
 const Login = () => {
-    const { onLoginSubmit } = useContext(AuthContext);
-    const { values, changeHandler, onSubmit } = useForm({
-        [LoginFormKeys.Email]: '',
-        [LoginFormKeys.Password]: '',
-    }, onLoginSubmit);
+    const { userLogin } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const onSubmit = (e) => {
+        e.preventDefault();
+
+        const {
+            email,
+            password,
+        } = Object.fromEntries(new FormData(e.target))
+    
+        authService.login(email, password)
+        .then(authData => {
+            userLogin(authData);
+            navigate('/');
+        })
+        .catch(() => {
+            navigate('/404');
+        });
+    };
+
+
+
+
 
     return (
         <div className="login-box">
@@ -24,18 +36,16 @@ const Login = () => {
                 <label>Имейл</label>
                 <input
                     type="text"
-                    name={LoginFormKeys.Email}
+                    id="email"
+                    name="email"
                     placeholder="Email.."
-                    value={values[LoginFormKeys.Email] ?? ''}
-                    onChange={changeHandler}
                 />
                 <label>Парола</label>
                 <input
                     type="password"
-                    name={LoginFormKeys.Password}
+                    id="password"
+                    name="password"
                     placeholder="Password.."
-                    value={values[LoginFormKeys.Password] ?? ''}
-                    onChange={changeHandler}
                 />
                 <input type="submit" className="btn_submit" value="Login" />
             </form>

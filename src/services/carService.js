@@ -1,14 +1,14 @@
 import * as request from "./requester";
 
-const baseUrl = 'http://localhost:3030/jsonstore/cars';
+const baseUrl = 'http://localhost:3030';
+
+   export const getAll = () => request.get('GET',`${baseUrl}/data/cars`);
 
 
-   export const getAll = async () => {
-      const result = await request.get(baseUrl);
-      const cars = Object.values(result);
 
-      return cars;
-   };
+
+
+
 
    export const getOne = async (carId) => {
       const result = await request.get(`${baseUrl}/${carId}`);

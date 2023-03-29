@@ -1,36 +1,56 @@
 const request = async (method, url, data) => {
-    const options = {};
 
-    if (method !== 'GET') {
-        options.method = method;
+    try {
+        let buildRequest;
 
-        if (data) {
-            options.headers = {
-                'content-type': 'application/json',
-            };
-            options.body = JSON.stringify(data);
+        if (method === 'GET') {
+            buildRequest = fetch(url);
+        } else {
+            buildRequest = fetch(url, {
+                method,
+                headers: {
+                    'content-type': 'application/json' 
+                },
+                body: JSON.stringify(data)
+            })
         }
+        const response = await buildRequest;
+
+        const result = await response.json();
+
+        return result;
+    } catch (error) {
+        // console.log(error);
     }
 
-    const response = await fetch(url, options);
 
-    if (response.status === 204) {
-        return {};
-    }
-    const result = await response.json();
 
-    if (!response.ok) {
 
-        throw result;
-    }
 
-    return result;
+
+
+
+
+
+
+    
+
+//     if (response.status === 204) {
+//         return {};
+//     }
+
+//     if (!response.ok) {
+
+//         throw result;
+//     }
+
+//     return result;
 };
 
 
-export const get = request.bind(null, 'GET');
-export const post = request.bind(null, 'POST');
-export const put = request.bind(null, 'PUT');
-export const patch = request.bind(null, 'PATCH');
-export const del = request.bind(null, 'DELETE');
+export const get = request.bind({}, 'GET');
+export const post = request.bind({}, 'POST');
+export const put = request.bind({}, 'PUT');
+export const del = request.bind({}, 'DELETE');
+export const patch = request.bind({}, 'PATCH');
 
