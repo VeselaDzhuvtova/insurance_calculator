@@ -1,16 +1,40 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
-
-import useForm from "../../hooks/useForm";
 import AuthContext from "../../contexts/authContext";
+import * as authService from "../../services/authService";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
-    const { onRegisterSubmit } = useContext(AuthContext);
-    const { values, changeHandler, onSubmit } = useForm({
-        email: '',
-        password: '',
-        repeatPassword: '',
-    }, onRegisterSubmit);
+    const { userLogin } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const onSubmit = (e) => {
+        e.preventDefault();
+
+        const formData = new FormData(e.target);
+
+        const email = formData.get('email');
+        const password = formData.get('password');
+        const repeatPassword = formData.get('repeatPassword');
+
+        if (password !== repeatPassword) {
+            return;
+            // TODO 404
+        }
+
+        authService.register(email, password)
+            .then(authData => {
+                userLogin(authData);
+                navigate('/')
+            });
+    }
+
+    // const Register = () => {
+    //     const { onRegisterSubmit } = useContext(AuthContext);
+    //     const { values, changeHandler, onSubmit } = useForm({
+    //         email: '',
+    //         password: '',
+    //         repeatPassword: '',
+    //     }, onRegisterSubmit);
 
     return (
         <div className="register-box">
@@ -18,27 +42,26 @@ const Register = () => {
             <h4>Безплатно е и отнема само минута</h4>
             <form method="POST" onSubmit={onSubmit}>
                 <label>Имейл</label>
-                <input 
-                type="text" 
-                name="email" 
-                placeholder="Имейл.."
-                value={values.email ?? ''}
-                onChange={changeHandler} />
+                <input
+                    type="text"
+                    id="email"
+                    name="email"
+                    placeholder="Имейл.."
+                />
                 <label>Парола</label>
-                <input 
-                type="password" 
-                name="password" 
-                placeholder="Парола.."
-                value={values.password ?? ''}
-                onChange={changeHandler}  />
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="Парола.."
+                     />
                 <br />
                 <label>Повтори парола</label>
                 <input
                     type="password"
+                    id="repeatPassword"
                     name="repeatPassword"
                     placeholder="Повтори парола.."
-                    value={values.repeatPassword ?? ''}
-                    onChange={changeHandler} 
                 />
                 <input type="submit" className="btn_submit" value="Submit" />
             </form>

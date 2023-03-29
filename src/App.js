@@ -30,7 +30,11 @@ function App() {
 
     const userLogin = (authData) => {
         setAuth(authData);
-    }
+    };
+
+    const userLogout = () => {
+        setAuth({});
+    };
 
     useEffect(() => {
         carService.getAll()
@@ -81,11 +85,11 @@ const onRegisterSubmit = async (values) => {
     }
 };
 
-const onLogout = async () => {
-    await authService.logout();
+// const onLogout = async () => {
+//     await authService.logout();
 
-    setAuth({});
-}
+//     setAuth({});
+// }
 
 // const contextValues = {
 //     // onLoginSubmit,
@@ -98,7 +102,7 @@ const onLogout = async () => {
 // };
 
 return (
-    <AuthContext.Provider value={{ user: auth, userLogin }}>
+    <AuthContext.Provider value={{ user: auth, userLogin, userLogout }}>
         <Fragment>
             <Header />
             <main>
