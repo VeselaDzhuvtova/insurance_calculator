@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
-import { Routes, Route, useNavigate } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import './App.css';
 import React from 'react';
+
+import * as carService from "./services/carService";
 
 import AuthContext from './contexts/authContext';
 import { useLocalStorage } from './hooks/useLocalStorage';
@@ -23,6 +25,16 @@ import CatalogItem from './components/Catalog/CatalogItem/CatalogItem';
 import Details from './components/Details/Details';
 
 function App() {
+
+    const [cars, setCars] = useState([]);
+
+    useEffect(() => {
+        carService.getAll()
+            .then(result => {
+                setCars(result);
+            });
+    }, []);
+
     const [auth, setAuth] = useLocalStorage('auth', {});
 
     const userLogin = (authData) => {
@@ -43,14 +55,14 @@ function App() {
                             <Route path='/logout' element={<Logout />} />
                             <Route path='/register' element={<Register />} />
                             <Route path='/' element={<Home />} />
-                            <Route path='/catalog' element={<Catalog />} />
+                            <Route path='/catalog' element={<Catalog cars={cars} />} /> 
                             <Route path='/catalog/CatalogItem' element={<CatalogItem />} />
                             <Route path='/create' element={<Create  />} />
                             <Route path='/insurances' element={<Insurances />} />
                             <Route path='/companies' element={<Companies />} />
                             <Route path='/calculator' element={<Calculator />} />
                             <Route path='/offers' element={<Offers />} />
-                            <Route path='/catalog/:carId' element={<Details />} />
+                            <Route path='/catalog/:carId' element={<Details />} /> 
                         </Routes>
                     </main>
                     <Footer />

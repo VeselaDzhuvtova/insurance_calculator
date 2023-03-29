@@ -1,17 +1,8 @@
 import CatalogItem from "../CatalogItem/CatalogItem";
-import { useEffect, useState } from "react";
-import * as carService from "../../../services/carService";
 
 
-const Catalog = () => {
-    const [cars, setCars] = useState([]);
+const Catalog = ({ cars }) => {
 
-    useEffect(() => {
-        carService.getAll()
-            .then(result => {
-                setCars(result);
-            });
-    }, []);
     return (
         <section className="myCars">
             <div className="cars">
