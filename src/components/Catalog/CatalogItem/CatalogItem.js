@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export const CatalogItem = ({
+const CatalogItem = ({
     _id,
     marka,
     model,
@@ -14,6 +14,7 @@ export const CatalogItem = ({
                     <h3>{marka}</h3>
                     <h3>{model}</h3>
                     <h3>{number}</h3>
+
                     <Link to={`/catalog/${_id}`} className="editDelBtn">
                         Детайли
                     </Link>

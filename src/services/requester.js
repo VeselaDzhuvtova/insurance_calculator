@@ -1,15 +1,27 @@
 const request = async (method, url, data) => {
 
     try {
+        const user = localStorage.getItem('auth');
+
+        const auth = JSON.parse(user || '{}');
+
+        let headers = {}
+
+        if (auth.accessToken) {
+            headers['X-Authorization'] = auth.accessToken;
+
+        }
+
         let buildRequest;
 
         if (method === 'GET') {
-            buildRequest = fetch(url);
+            buildRequest = fetch(url, { headers });
         } else {
             buildRequest = fetch(url, {
                 method,
                 headers: {
-                    'content-type': 'application/json' 
+                    ...headers,
+                    'content-type': 'application/json'
                 },
                 body: JSON.stringify(data)
             })
@@ -33,18 +45,18 @@ const request = async (method, url, data) => {
 
 
 
-    
 
-//     if (response.status === 204) {
-//         return {};
-//     }
 
-//     if (!response.ok) {
+    //     if (response.status === 204) {
+    //         return {};
+    //     }
 
-//         throw result;
-//     }
+    //     if (!response.ok) {
 
-//     return result;
+    //         throw result;
+    //     }
+
+    //     return result;
 };
 
 
