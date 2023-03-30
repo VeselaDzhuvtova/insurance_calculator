@@ -13,9 +13,9 @@ const CatalogItem = ({ car }) => {
                     <Link to={`/catalog/${car._id}`} className="editDelBtn">
                         Детайли
                     </Link>
-                    <a href="#" className="editDelBtn">
+                    <Link to={`/catalog/${car._id}/edit`} className="editDelBtn">
                         Промени
-                    </a>
+                    </Link>
                     <a href="#" className="editDelBtn">
                         Изтрий
                     </a>

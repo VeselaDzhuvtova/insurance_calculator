@@ -2,30 +2,14 @@ import * as request from "./requester";
 
 const baseUrl = 'http://localhost:3030/data/cars';
 
-export const getAll = () => {
-   return fetch(`${baseUrl}`)
-      .then(res => res.json())
-};
+export const getAll = () => request.get(`${baseUrl}`);
 
+export const getOne = (carId) => request.get(`${baseUrl}/${carId}`);
 
+export const create = (carData) => request.post(baseUrl, carData);
 
+export const edit = (carId, carData) => request.put(`${baseUrl}/${carId}`, carData);
 
-
-
-
-export const getOne = async (carId) => {
-   const result = await request.get(`${baseUrl}/${carId}`);
-
-   return result;
-};
-
-export const create = async (carData) => {
-   const result = await request.post(baseUrl, carData);
-
-   console.log(result);
-
-   return result;
-};
 
 
 

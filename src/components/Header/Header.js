@@ -21,7 +21,6 @@ const Header = () => {
                 <Link to="/catalog">КАТАЛОГ</Link>
                 <Link to="/create"></Link>
                 <Link to="/calculator">КАЛКУЛАТОР</Link>
-
                 <Link to="/offers"></Link>
                 <Link to="/logout">ИЗХОД</Link>
                 {user.email && <span>{` Здравей, ${user.email} `}</span>}

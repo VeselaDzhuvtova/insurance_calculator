@@ -1,121 +1,105 @@
-import * as carService from '../../services/carService';
-import { useContext } from 'react';
-import { carContext } from '../../contexts/carContext';
+import { useContext, useEffect, useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 
-const Create = () => {
-    const { addCarHandler } = useContext(carContext);
+import { carContext } from "../../contexts/carContext";
+import * as carService from "../../services/carService";
+const Edit = () => {
+    const [currentCar, setCurrentCar] = useState({});
+    const { carEdit } = useContext(carContext);
+    const { carId } = useParams();
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        carService.getOne(carId)
+        .then(carData => {
+            setCurrentCar(carData);
+        });
+    }, []);
 
     const onSubmit = (e) => {
         e.preventDefault();
 
         const carData = Object.fromEntries(new FormData(e.target));
         
-        carService.create(carData)
+        carService.edit(carId, carData)
         .then(result => {
-            addCarHandler(result)
+            carEdit(carId, result)
+            navigate(`/catalog/${result._id}`)
         });
     };
 
 
-    //     onCreateCarSubmit,
-    // }) => {
-    //     const [values, setValues] = useState({
-    //         marka: '',
-    //         model: '',
-    //         number: '',
-    //         docum: '',
-    //         vin: '',
-    //         registration: '',
-    //         firstName: '',
-    //         secondName: '',
-    //     });
-
-    //     const onChangeHandler = (e) => {
-    //         setValues(state => ({ ...state, [e.target.name]: e.target.value }))
-    //     };
-
-
-
     return (
         <div className="text-center" >
-            <form id='create' method="POST" onSubmit={onSubmit}>
+            <form id='create' method="POST" onSubmit = {onSubmit}>
                 <div className="form-group">
-                    <h3>Добави автомобил</h3>
+                    <h3>Промени данните на автомобила</h3>
                     <label htmlFor="marka"></label>
                     <input
-                        // value={values.marka ?? ''}
-                        // onChange={onChangeHandler}
                         type="text"
                         id="marka"
                         name="marka"
                         placeholder="Марка"
+                        defaultValue={currentCar.marka}
                     />
                     <label htmlFor="model"></label>
                     <input
-                        // value={values.model ?? ''}
-                        // onChange={onChangeHandler}
                         type="text"
                         id="model"
                         name="model"
                         placeholder="Модел"
+                        defaultValue={currentCar.model}
                     />
                     <label htmlFor="number"></label>
                     <input type="text"
-                        // value={values.number ?? ''}
-                        // onChange={onChangeHandler}
                         id="number"
                         name="number"
                         placeholder="ДКН"
                     />
                     <label htmlFor="docum"></label>
                     <input
-                        // value={values.docum ?? ''}
-                        // onChange={onChangeHandler}
                         type="text" id="docum"
                         name="docum"
                         placeholder="СРМПС"
+                        defaultValue={currentCar.docum}
                     />
                     <label htmlFor="vin"></label>
                     <input
-                        // value={values.vin ?? ''}
-                        // onChange={onChangeHandler}
                         type="text"
                         id="vin"
                         name="vin"
                         placeholder="Номер на рама"
+                        defaultValue={currentCar.vin}
                     />
                     <label htmlFor="registration"></label>
                     <input
-                        // value={values.registration ?? ''}
-                        // onChange={onChangeHandler}
                         type="text"
                         id="registration"
                         name="registration"
                         placeholder="Дата на първа регистрация"
+                        defaultValue={currentCar.registration}
                     />
                     <label htmlFor="firstName"></label>
                     <input
-                        // value={values.firstName ?? ''}
-                        // onChange={onChangeHandler}
                         type="text"
                         id="firstName"
                         name="firstName"
                         placeholder="Име"
+                        defaultValue={currentCar.firstName}
                     />
                     <label htmlFor="lastName"></label>
                     <input
-                        // value={values.lastName ?? ''}
-                        // onChange={onChangeHandler}
                         type="text"
                         id="lastName"
                         name="lastName"
                         placeholder="Фамилия"
+                        defaultValue={currentCar.lastName}
                     />
-                    <input type="submit" className="btn-myCars" value="Добави" />
+                    <input type="submit" className="btn-myCars" value="Запази" />
                 </div>
             </form>
         </div >
     );
 };
 
-export default Create;
+export default Edit;

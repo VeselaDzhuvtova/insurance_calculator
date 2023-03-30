@@ -1,20 +1,11 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-
-import * as carService from '../../services/carService';
+import { Link } from 'react-router-dom';
 
 export const Details = ({ cars }) => {
     const { carId } = useParams();
-    // const [carDetails, setCar] = useState({});
     
     const car = cars.find(x => x._id == carId);
-
-    // useEffect(() => {
-    //     carService.getOne(carId)
-    //         .then(result => {
-    //             setCar(result);
-    //         });
-    // }, [carId]);
 
     return (
         <section id="add-car">
@@ -29,15 +20,15 @@ export const Details = ({ cars }) => {
                     <h3>Дата на първа регистрация: {car.registration}</h3>
                     <h3>Собственик: {`${car.firstName} ${car.lastName}`}</h3>
                     <h3></h3>
-                    <a href="#" className="editDelBtn">
+                    <Link to={`/catalog/${car._id}/edit`} className="editDelBtn">
                         Промени
-                    </a>
-                    <a href="#" className="editDelBtn">
+                    </Link>
+                    <Link to="#" className="editDelBtn">
                         Изтрий
-                    </a>
-                    <a href="/catalog" className="editDelBtn">
+                    </Link>
+                    <Link to="/catalog" className="editDelBtn">
                         Назад
-                    </a>
+                    </Link>
                 </div>
             </div>
         </section>

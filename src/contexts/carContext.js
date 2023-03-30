@@ -1,4 +1,4 @@
 import { createContext } from "react";
 
-export const carContect = createContext();
+export const carContext = createContext();
 
