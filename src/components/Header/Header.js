@@ -23,7 +23,7 @@ const Header = () => {
                 <Link to="/calculator">КАЛКУЛАТОР</Link>
                 <Link to="/offers"></Link>
                 <Link to="/logout">ИЗХОД</Link>
-                {user.email && <span>{` Здравей, ${user.email} `}</span>}
+                {user.email && <span style={{color: "#47439d", fontWeight: "bold"}}>{` Здравей, ${user.email} `}</span>}
               </div>
               : <div id='guest'>
                 <Link to="/login">ВХОД</Link>
