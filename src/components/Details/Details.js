@@ -21,19 +21,22 @@ export const Details = ({ cars }) => {
             <h2>Автомобил:</h2>
             <div className="allCars">
                 <div className="allCars-info">
-                    <h3>{car.marka}</h3>
-                    <h3>{car.model}</h3>
-                    <h3>{car.number}</h3>
-                    <h3>{car.docum}</h3>
-                    <h3>{car.vin}</h3>
-                    <h3>{car.registration}</h3>
-                    <h3>{car.firstName}</h3>
-                    <h3>{car.secondName}</h3>
+                    <h3>Марка: {car.marka}</h3>
+                    <h3>Модел: {car.model}</h3>
+                    <h3>ДКН: {car.number}</h3>
+                    <h3>СРМПС: {car.docum}</h3>
+                    <h3>VIN: {car.vin}</h3>
+                    <h3>Дата на първа регистрация: {car.registration}</h3>
+                    <h3>Собственик: {`${car.firstName} ${car.lastName}`}</h3>
+                    <h3></h3>
                     <a href="#" className="editDelBtn">
                         Промени
                     </a>
                     <a href="#" className="editDelBtn">
                         Изтрий
+                    </a>
+                    <a href="/catalog" className="editDelBtn">
+                        Назад
                     </a>
                 </div>
             </div>

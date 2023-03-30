@@ -1,9 +1,9 @@
 import * as request from "./requester";
 
-const baseUrl = 'http://localhost:3030';
+const baseUrl = 'http://localhost:3030/data/cars';
 
 export const getAll = () => {
-   return fetch(`${baseUrl}/data/cars`)
+   return fetch(`${baseUrl}`)
       .then(res => res.json())
 };
 

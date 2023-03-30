@@ -1,39 +1,47 @@
-import { useState } from 'react';
+import * as carService from '../../services/carService';
 
 
-export const Create = ({
-    onCreateCarSubmit,
-}) => {
-    const [values, setValues] = useState({
-        marka: '',
-        model: '',
-        number: '',
-        docum: '',
-        vin: '',
-        registration: '',
-        firstName: '',
-        secondName: '',
-    });
-
-    const onChangeHandler = (e) => {
-        setValues(state => ({ ...state, [e.target.name]: e.target.value }))
-    };
-
+const Create = ({addCarHandler}) => {
     const onSubmit = (e) => {
         e.preventDefault();
 
-        onCreateCarSubmit(values);
+        const carData = Object.fromEntries(new FormData(e.target));
+        
+        carService.create(carData)
+        .then(result => {
+            addCarHandler(result)
+        });
     };
 
+
+    //     onCreateCarSubmit,
+    // }) => {
+    //     const [values, setValues] = useState({
+    //         marka: '',
+    //         model: '',
+    //         number: '',
+    //         docum: '',
+    //         vin: '',
+    //         registration: '',
+    //         firstName: '',
+    //         secondName: '',
+    //     });
+
+    //     const onChangeHandler = (e) => {
+    //         setValues(state => ({ ...state, [e.target.name]: e.target.value }))
+    //     };
+
+
+
     return (
-        <div className="text-center">
+        <div className="text-center" >
             <form id='create' method="POST" onSubmit={onSubmit}>
                 <div className="form-group">
                     <h3>Добави автомобил</h3>
                     <label htmlFor="marka"></label>
                     <input
-                        value={values.marka ?? ''}
-                        onChange={onChangeHandler}
+                        // value={values.marka ?? ''}
+                        // onChange={onChangeHandler}
                         type="text"
                         id="marka"
                         name="marka"
@@ -41,8 +49,8 @@ export const Create = ({
                     />
                     <label htmlFor="model"></label>
                     <input
-                        value={values.model ?? ''}
-                        onChange={onChangeHandler}
+                        // value={values.model ?? ''}
+                        // onChange={onChangeHandler}
                         type="text"
                         id="model"
                         name="model"
@@ -50,24 +58,24 @@ export const Create = ({
                     />
                     <label htmlFor="number"></label>
                     <input type="text"
-                        value={values.number ?? ''}
-                        onChange={onChangeHandler}
-                        id="number" 
+                        // value={values.number ?? ''}
+                        // onChange={onChangeHandler}
+                        id="number"
                         name="number"
                         placeholder="ДКН"
                     />
                     <label htmlFor="docum"></label>
-                    <input 
-                    value={values.docum ?? ''}
-                        onChange={onChangeHandler}
+                    <input
+                        // value={values.docum ?? ''}
+                        // onChange={onChangeHandler}
                         type="text" id="docum"
                         name="docum"
                         placeholder="СРМПС"
                     />
                     <label htmlFor="vin"></label>
                     <input
-                        value={values.vin ?? ''}
-                        onChange={onChangeHandler}
+                        // value={values.vin ?? ''}
+                        // onChange={onChangeHandler}
                         type="text"
                         id="vin"
                         name="vin"
@@ -75,8 +83,8 @@ export const Create = ({
                     />
                     <label htmlFor="registration"></label>
                     <input
-                        value={values.registration ?? ''}
-                        onChange={onChangeHandler}
+                        // value={values.registration ?? ''}
+                        // onChange={onChangeHandler}
                         type="text"
                         id="registration"
                         name="registration"
@@ -84,26 +92,26 @@ export const Create = ({
                     />
                     <label htmlFor="firstName"></label>
                     <input
-                        value={values.firstName ?? ''}
-                        onChange={onChangeHandler}
+                        // value={values.firstName ?? ''}
+                        // onChange={onChangeHandler}
                         type="text"
                         id="firstName"
                         name="firstName"
                         placeholder="Име"
                     />
-                    <label htmlFor="secondName"></label>
+                    <label htmlFor="lastName"></label>
                     <input
-                        value={values.secondName ?? ''}
-                        onChange={onChangeHandler}
+                        // value={values.lastName ?? ''}
+                        // onChange={onChangeHandler}
                         type="text"
-                        id="secondName"
-                        name="secondName"
+                        id="lastName"
+                        name="lastName"
                         placeholder="Фамилия"
                     />
                     <input type="submit" className="btn-myCars" value="Добави" />
                 </div>
             </form>
-        </div>
+        </div >
     );
 };
 

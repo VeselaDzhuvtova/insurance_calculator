@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 import './App.css';
 import React from 'react';
+import uniqid from 'uniqid';
 
 import * as carService from "./services/carService";
 
@@ -27,6 +28,7 @@ import Details from './components/Details/Details';
 function App() {
 
     const [cars, setCars] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         carService.getAll()
@@ -45,6 +47,14 @@ function App() {
         setAuth({});
     };
 
+    const addCarHandler = (carData) => {
+        setCars(state => [
+            ...state,
+            carData,
+        ]);
+        navigate('/catalog');
+    };
+
         return (
             <AuthContext.Provider value={{ user: auth, userLogin, userLogout }}>
                 <Fragment>
@@ -57,7 +67,7 @@ function App() {
                             <Route path='/' element={<Home />} />
                             <Route path='/catalog' element={<Catalog cars={cars} />} /> 
                             <Route path='/catalog/CatalogItem' element={<CatalogItem />} />
-                            <Route path='/create' element={<Create  />} />
+                            <Route path='/create' element={<Create addCarHandler={addCarHandler} />} />
                             <Route path='/insurances' element={<Insurances />} />
                             <Route path='/companies' element={<Companies />} />
                             <Route path='/calculator' element={<Calculator />} />
