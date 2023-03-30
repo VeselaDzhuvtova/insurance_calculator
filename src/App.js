@@ -5,9 +5,7 @@ import React from 'react';
 import { carContext } from './contexts/carContext';
 import * as carService from "./services/carService";
 
-import AuthContext from './contexts/authContext';
-import { useLocalStorage } from './hooks/useLocalStorage';
-import { Fragment } from 'react';
+import { AuthProvider } from './contexts/AuthContext'
 
 import Header from './components/Header/Header';
 import Home from './components/Home/Home';
@@ -37,15 +35,8 @@ function App() {
             });
     }, []);
 
-    const [auth, setAuth] = useLocalStorage('auth', {});
 
-    const userLogin = (authData) => {
-        setAuth(authData);
-    };
 
-    const userLogout = () => {
-        setAuth({});
-    };
 
     const addCarHandler = (carData) => {
         setCars(state => [
@@ -60,10 +51,9 @@ function App() {
     }
 
     return (
-        <Fragment>
-            <AuthContext.Provider value={{ user: auth, userLogin, userLogout }}>
+            <AuthProvider>
                 <Header />
-                <carContext.Provider value={{cars, addCarHandler, carEdit}}>
+                <carContext.Provider value={{ cars, addCarHandler, carEdit }}>
                     <main>
                         <Routes>
                             <Route path='/login' element={<Login />} />
@@ -83,8 +73,7 @@ function App() {
                     </main>
                 </carContext.Provider>
                 <Footer />
-            </AuthContext.Provider >
-        </Fragment >
+                </AuthProvider>
     );
 }
 
