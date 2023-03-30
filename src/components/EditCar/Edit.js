@@ -24,7 +24,7 @@ const Edit = () => {
         carService.edit(carId, carData)
         .then(result => {
             carEdit(carId, result)
-            navigate(`/catalog/${result._id}`)
+            navigate(`/catalog/${carId}`)
         });
     };
 
