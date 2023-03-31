@@ -6,13 +6,14 @@ import * as carService from "../../services/carService";
 
 
 export const Details = ({}) => {
+    const { fetchCarDetails, selectCar } = useContext(CarContext);
     const { carId } = useParams();
-    const [currentCar, setCurrentCar] = useState({});
 
+    const currentCar = selectCar(carId);
     useEffect(() => {
         carService.getOne(carId)
         .then(result => {
-            setCurrentCar(result);
+            fetchCarDetails(carId, result)
         });
     });
     // const car = cars.find(x => x._id == carId);

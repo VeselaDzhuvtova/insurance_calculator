@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
+import { Link } from "react-router-dom";
 import { CarContext } from "../../contexts/carContext";
 import * as carService from "../../services/carService";
 const Edit = () => {
@@ -95,7 +96,9 @@ const Edit = () => {
                         placeholder="Фамилия"
                         defaultValue={currentCar.lastName}
                     />
-                    <input type="submit" className="btn-myCars" value="Запази" />
+                    <Link to={`/catalog/${currentCar._id}`} className="btn-Save">
+                        Запази
+                    </Link>
                 </div>
             </form>
         </div >

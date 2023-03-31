@@ -11,8 +11,9 @@ const carReducer = (state, action) => {
             return [...action.payload];
         case 'ADD_CAR':
             return [...state, action.payload];
-            case 'EDIT_CAR':
-                return state.map(x => x._id === action.carId ? action.payload : x);
+        case 'EDIT_CAR':
+        case 'FETCH_CAR_DETAILS':
+            return state.map(x => x._id === action.carId ? action.payload : x);
         default:
             return state;
     }
@@ -35,6 +36,18 @@ export const CarProvider = ({
             });
     }, []);
 
+    const selectCar = (carId) => {
+        return cars.find(x => x._id === carId);
+    }
+
+    const fetchCarDetails = (carId, carDetails) => {
+        carDispatch({
+            type: 'FETCH_CAR_DETAILS',
+            payload: carDetails,
+            carId,
+        })
+    }
+
 
     const addCar = (carData) => {
         carDispatch({
@@ -55,7 +68,7 @@ export const CarProvider = ({
 
 
     return (
-        <CarContext.Provider value={{ cars, addCarHandler: addCar, carEdit: editCar }}>
+        <CarContext.Provider value={{ cars, addCar, editCar, fetchCarDetails, selectCar }}>
             {children}
         </CarContext.Provider>
     );
