@@ -1,9 +1,7 @@
-import { useState, useEffect } from 'react';
-import { Routes, Route, useNavigate } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import './App.css';
 import React from 'react';
-import { carContext } from './contexts/carContext';
-import * as carService from "./services/carService";
+import { CarProvider } from './contexts/carContext';
 
 import { AuthProvider } from './contexts/AuthContext'
 
@@ -25,42 +23,17 @@ import Details from './components/Details/Details';
 
 function App() {
 
-    const [cars, setCars] = useState([]);
-    const navigate = useNavigate();
-
-    useEffect(() => {
-        carService.getAll()
-            .then(result => {
-                setCars(result);
-            });
-    }, []);
-
-
-
-
-    const addCarHandler = (carData) => {
-        setCars(state => [
-            ...state,
-            carData,
-        ]);
-        navigate('/catalog');
-    };
-
-    const carEdit = (carId, carData) => {
-        setCars(state => state.map(x => x._id === carId ? carData : x))
-    }
-
     return (
             <AuthProvider>
                 <Header />
-                <carContext.Provider value={{ cars, addCarHandler, carEdit }}>
+                <CarProvider>
                     <main>
                         <Routes>
                             <Route path='/login' element={<Login />} />
                             <Route path='/logout' element={<Logout />} />
                             <Route path='/register' element={<Register />} />
                             <Route path='/' element={<Home />} />
-                            <Route path='/catalog' element={<Catalog cars={cars} />} />
+                            <Route path='/catalog' element={<Catalog/>} />
                             <Route path='/catalog/CatalogItem' element={<CatalogItem />} />
                             <Route path='/create' element={<Create />} />
                             <Route path='/catalog/:carId/edit' element={<Edit />} />
@@ -68,10 +41,10 @@ function App() {
                             <Route path='/companies' element={<Companies />} />
                             <Route path='/calculator' element={<Calculator />} />
                             <Route path='/offers' element={<Offers />} />
-                            <Route path='/catalog/:carId' element={<Details cars={cars} />} />
+                            <Route path='/catalog/:carId' element={<Details/>} />
                         </Routes>
                     </main>
-                </carContext.Provider>
+                </CarProvider>
                 <Footer />
                 </AuthProvider>
     );

@@ -1,7 +1,11 @@
+import { useContext } from "react";
+
+import { CarContext } from "../../../contexts/carContext";
 import CatalogItem from "../CatalogItem/CatalogItem";
 
 
-const Catalog = ({ cars }) => {
+const Catalog = () => {
+    const { cars } = useContext(CarContext);
 
     return (
         <section className="myCars">

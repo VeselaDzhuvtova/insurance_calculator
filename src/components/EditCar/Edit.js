@@ -1,11 +1,11 @@
 import { useContext, useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
-import { carContext } from "../../contexts/carContext";
+import { CarContext } from "../../contexts/carContext";
 import * as carService from "../../services/carService";
 const Edit = () => {
     const [currentCar, setCurrentCar] = useState({});
-    const { carEdit } = useContext(carContext);
+    const { carEdit } = useContext(CarContext);
     const { carId } = useParams();
     const navigate = useNavigate();
 
