@@ -1,7 +1,7 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import { CarContext } from '../../contexts/carContext';
+import { CarContext } from '../../contexts/CarContext';
 import * as carService from "../../services/carService";
 
 
@@ -34,9 +34,7 @@ export const Details = ({}) => {
                     <Link to={`/catalog/${currentCar._id}/edit`} className="editDelBtn">
                         Промени
                     </Link>
-                    <Link to="#" className="editDelBtn">
-                        Изтрий
-                    </Link>
+
                     <Link to="/catalog" className="editDelBtn">
                         Назад
                     </Link>

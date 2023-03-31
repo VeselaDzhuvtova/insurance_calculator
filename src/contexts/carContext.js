@@ -14,6 +14,8 @@ const carReducer = (state, action) => {
         case 'EDIT_CAR':
         case 'FETCH_CAR_DETAILS':
             return state.map(x => x._id === action.carId ? action.payload : x);
+        case 'REMOVE_CAR':
+            return state.filter(x => x._id !== action.carId);
         default:
             return state;
     }
@@ -66,11 +68,17 @@ export const CarProvider = ({
         });
     }
 
+    const removeCar = (carId, carData) => {
+        carDispatch({
+            type: 'REMOVE_CAR',
+            payload: carData,
+            carId,
+        });
 
-    return (
-        <CarContext.Provider value={{ cars, addCar, editCar, fetchCarDetails, selectCar }}>
-            {children}
-        </CarContext.Provider>
-    );
+        return (
+            <CarContext.Provider value={{ cars, addCar, editCar, fetchCarDetails, selectCar, removeCar }}>
+                {children}
+            </CarContext.Provider>
+        );
+    };
 };
-

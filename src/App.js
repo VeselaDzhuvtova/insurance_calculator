@@ -1,7 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 import './App.css';
 import React from 'react';
-import { CarProvider } from './contexts/carContext';
+import { CarProvider } from './contexts/CarContext';
 
 import { AuthProvider } from './contexts/AuthContext'
 

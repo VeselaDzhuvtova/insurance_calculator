@@ -1,6 +1,6 @@
 import * as carService from '../../services/carService';
 import { useContext } from 'react';
-import { CarContext } from '../../contexts/carContext';
+import { CarContext } from '../../contexts/CarContext';
 
 const Create = () => {
     const { addCarHandler } = useContext(CarContext);

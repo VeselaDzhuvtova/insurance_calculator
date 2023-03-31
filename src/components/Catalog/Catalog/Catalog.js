@@ -1,6 +1,6 @@
 import { useContext } from "react";
 
-import { CarContext } from "../../../contexts/carContext";
+import { CarContext } from "../../../contexts/CarContext";
 import CatalogItem from "../CatalogItem/CatalogItem";
 
 
