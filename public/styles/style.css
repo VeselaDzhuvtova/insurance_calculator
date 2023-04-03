@@ -551,7 +551,7 @@ td {
     color: crimson;
 }
 
-#third-button {
+#third-button, .delBtn {
     font-size: 16px;
     font-family: sans-serif;
     background: transparent;
@@ -562,7 +562,11 @@ td {
     border-radius: 15px;
 }
 
-#third-button:hover {
+.delBtn {
+    margin-left: 40px;
+}
+
+#third-button:hover, .delBtn:hover {
     background: #47439d;
     color: white;
     border: 2px solid #47439d;

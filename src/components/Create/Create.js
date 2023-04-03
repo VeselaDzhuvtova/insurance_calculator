@@ -1,10 +1,6 @@
 import * as carService from '../../services/carService';
-import { useContext } from 'react';
-import { CarContext } from '../../contexts/CarContext';
 
-const Create = () => {
-    const { addCarHandler } = useContext(CarContext);
-
+const Create = ({addCar}) => {
     const onSubmit = (e) => {
         e.preventDefault();
 
@@ -12,29 +8,9 @@ const Create = () => {
         
         carService.create(carData)
         .then(result => {
-            addCarHandler(result)
+            addCar(result)
         });
     };
-
-
-    //     onCreateCarSubmit,
-    // }) => {
-    //     const [values, setValues] = useState({
-    //         marka: '',
-    //         model: '',
-    //         number: '',
-    //         docum: '',
-    //         vin: '',
-    //         registration: '',
-    //         firstName: '',
-    //         secondName: '',
-    //     });
-
-    //     const onChangeHandler = (e) => {
-    //         setValues(state => ({ ...state, [e.target.name]: e.target.value }))
-    //     };
-
-
 
     return (
         <div className="text-center" >

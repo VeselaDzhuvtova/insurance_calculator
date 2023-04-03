@@ -3,17 +3,18 @@ import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { CarContext } from '../../contexts/CarContext';
 import * as carService from "../../services/carService";
-
+import { useState } from 'react';
 
 export const Details = ({}) => {
-    const { fetchCarDetails, selectCar } = useContext(CarContext);
+    // const { fetchCarDetails, selectCar } = useContext(CarContext);
     const { carId } = useParams();
+    const [ currentCar, setCurrentCar ] = useState({});
 
-    const currentCar = selectCar(carId);
+    // const currentCar = selectCar(carId);
     useEffect(() => {
         carService.getOne(carId)
         .then(result => {
-            fetchCarDetails(carId, result)
+            setCurrentCar(carId, result)
         });
     });
     // const car = cars.find(x => x._id == carId);

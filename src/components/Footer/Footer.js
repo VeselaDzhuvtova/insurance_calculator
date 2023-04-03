@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
 
 function Footer() {
-    const [email, setEmail] = useState(''); // създаване на състояние за запазване на имейлите
-    const [isSaved, setIsSaved] = useState(false); // създаване на състояние за показване на съобщение за успешно запазване
+    const [email, setEmail] = useState(''); 
+    const [isSaved, setIsSaved] = useState(false); 
 
     function handleSubmit(event) {
         event.preventDefault();
-        console.log(`Имейлът ${email} е запазен!`); // тук можете да направите необходимите манипулации със запазените имейли
+        console.log(`Имейлът ${email} е запазен!`); 
 
         setIsSaved(true);
-        // изчистване на полето за въвеждане на имейла след като се натисне бутона
         setEmail('');
     }
 
@@ -18,7 +17,7 @@ function Footer() {
         setIsSaved(false);
 
         setTimeout(() => {
-            setIsSaved(false); // промяна на състоянието обратно на "false" след 5 секунди
+            setIsSaved(false); 
           }, 8000);
     }
 

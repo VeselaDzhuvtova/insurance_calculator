@@ -6,7 +6,6 @@ import CatalogItem from "../CatalogItem/CatalogItem";
 
 const Catalog = () => {
     const { cars } = useContext(CarContext);
-
     return (
         <section className="myCars">
             <div className="cars">
@@ -15,6 +14,7 @@ const Catalog = () => {
                 <a href="/create" className="newCar">
                     Добави
                 </a>
+                
                 {cars.length > 0
                     ? cars.map(x => <CatalogItem key={x._id} car={x} />)
                     : <h3 className="noCars">Няма намерени автомобили</h3>

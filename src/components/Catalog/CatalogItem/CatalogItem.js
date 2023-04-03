@@ -2,20 +2,28 @@ import { Link } from "react-router-dom";
 import * as carService from "../../../services/carService";
 import { useNavigate } from "react-router-dom";
 import { useParams } from 'react-router-dom';
+import { useContext } from "react";
+import { CarContext } from "../../../contexts/CarContext";
+import { CarProvider } from "../../../contexts/CarContext";
 
-const carDeleteHandler = () => {
-    const { carId } = useParams();
-    const info = window.confirm('Премахване на автомобила от списъка?')
-    const navigate = useNavigate();
-    if (info) {
 
-        carService.remove(carId)
-        .then(() => {
-            navigate('/catalog')
-        })
-    }
-}
 const CatalogItem = ({ car }) => {
+    const { carId } = useParams();
+    const navigate = useNavigate();
+    const { carRemove } = useContext(CarContext);
+
+    const removeCar = () => {
+        const info = window.confirm('Желаете ли да изтриете автомобила от списъка?')
+
+        if (info) {
+            carService.remove(carId)
+                .then(() => {
+                    carRemove(carId);
+                    navigate('/catalog');
+                })
+        }
+    }
+
     return (
         <section id="add-car">
             <h2>Автомобил:</h2>
@@ -31,7 +39,7 @@ const CatalogItem = ({ car }) => {
                     <Link to={`/catalog/${car._id}/edit`} className="editDelBtn">
                         Промени
                     </Link>
-                    <button onClick={carDeleteHandler} className="editDelBtn">
+                    <button onClick={removeCar} className="delBtn">
                         Изтрий
                     </button>
                 </div>
@@ -39,5 +47,6 @@ const CatalogItem = ({ car }) => {
         </section>
     )
 }
+
 
 export default CatalogItem;
