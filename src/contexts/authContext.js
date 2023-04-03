@@ -1,12 +1,13 @@
-import { createContext, useContext } from "react";
+import { createContext } from "react";
 import { useLocalStorage } from "../hooks/useLocalStorage";
+import { useContext } from "react";
 
 export const AuthContext = createContext();
 
 export const AuthProvider = ({
     children,
 }) => {
-    const [auth, setAuth] = useLocalStorage('auth', {});
+    // const [auth, setAuth] = useLocalStorage('auth', {});
 
     const userLogin = (authData) => {
         setAuth(authData);
@@ -23,8 +24,12 @@ export const AuthProvider = ({
     );
 };
 
+
+
 export const useAuthContext = () => {
     const context = useContext(AuthContext);
 
     return context;
 }
+
+// Всичко е от  29.07

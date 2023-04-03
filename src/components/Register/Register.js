@@ -4,29 +4,31 @@ import { AuthContext } from "../../contexts/AuthContext";
 import * as authService from "../../services/authService";
 import { useNavigate } from "react-router-dom";
 
-const Register = () => {
-    const { userLogin } = useContext(AuthContext);
-    const navigate = useNavigate();
-    const onSubmit = (e) => {
-        e.preventDefault();
+const Register = () => { // 29.07     
+    const { userLogin } = useContext(AuthContext); // 29.07 
+    const navigate = useNavigate(); // 29.07 
+    const onSubmit = (e) => { // 29.07 
+        e.preventDefault(); // 29.07 
 
-        const formData = new FormData(e.target);
+        const formData = new FormData(e.target); // 29.07 
 
-        const email = formData.get('email');
-        const password = formData.get('password');
-        const repeatPassword = formData.get('repeatPassword');
+        const email = formData.get('email'); // 29.07 
+        const password = formData.get('password'); // 29.07 
+        const repeatPassword = formData.get('repeatPassword'); // 29.07 
 
-        if (password !== repeatPassword) {
-            return;
+        if (password !== repeatPassword) { // 29.07 
+            return; // 29.07 
             // TODO 404
-        }
+        } // 29.07 
 
-        authService.register(email, password)
-            .then(authData => {
-                userLogin(authData);
-                navigate('/')
-            });
-    }
+        authService.register(email, password)// 29.07 
+            .then(authData => {// 29.07 
+                userLogin(authData);// 29.07 
+                navigate('/')// 29.07 
+            });// 29.07 
+    }// 29.07 
+
+    
 
     // const Register = () => {
     //     const { onRegisterSubmit } = useContext(AuthContext);

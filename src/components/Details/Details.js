@@ -5,19 +5,20 @@ import { CarContext } from '../../contexts/CarContext';
 import * as carService from "../../services/carService";
 import { useState } from 'react';
 
-export const Details = ({}) => {
-    // const { fetchCarDetails, selectCar } = useContext(CarContext);
-    const { carId } = useParams();
-    const [ currentCar, setCurrentCar ] = useState({});
+export const Details = ({}) => {// 29.07 
+//     // const { fetchCarDetails, selectCar } = useContext(CarContext);
+    const { carId } = useParams();// 29.07 
+    const [ currentCar, setCurrentCar ] = useState({});// 29.07 
 
-    // const currentCar = selectCar(carId);
-    useEffect(() => {
-        carService.getOne(carId)
-        .then(result => {
-            setCurrentCar(carId, result)
-        });
-    });
-    // const car = cars.find(x => x._id == carId);
+//     // const currentCar = selectCar(carId);
+    useEffect(() => { // 29.07
+        carService.getOne(carId) // 29.07
+        .then(result => { // 29.07
+            setCurrentCar(carId, result) // 29.07
+        }); // 29.07
+    }); // 29.07
+//     // const car = cars.find(x => x._id == carId);
+
 
     return (
         <section id="add-car">

@@ -8,21 +8,21 @@ import { CarProvider } from "../../../contexts/CarContext";
 
 
 const CatalogItem = ({ car }) => {
-    const { carId } = useParams();
+//     const { carId } = useParams();
     const navigate = useNavigate();
-    const { carRemove } = useContext(CarContext);
+//     const { carRemove: removeCar } = useContext(CarContext);
 
-    const removeCar = () => {
-        const info = window.confirm('Желаете ли да изтриете автомобила от списъка?')
+//     const removeCar = () => {
+//         const info = window.confirm('Желаете ли да изтриете автомобила от списъка?')
 
-        if (info) {
-            carService.remove(carId)
-                .then(() => {
-                    carRemove(carId);
-                    navigate('/catalog');
-                })
-        }
-    }
+//         if (info) {
+//             carService.remove(carId)
+//                 .then(() => {
+//                     removeCar(carId);
+//                     navigate('/catalog');
+//                 })
+//         }
+//     }
 
     return (
         <section id="add-car">
