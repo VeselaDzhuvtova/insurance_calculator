@@ -1,15 +1,8 @@
 import { Link } from "react-router-dom";
-import * as carService from "../../../services/carService";
-import { useNavigate } from "react-router-dom";
-import { useParams } from 'react-router-dom';
-import { useContext } from "react";
-import { CarContext } from "../../../contexts/CarContext";
-import { CarProvider } from "../../../contexts/CarContext";
-
 
 const CatalogItem = ({ car }) => {
 //     const { carId } = useParams();
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 //     const { carRemove: removeCar } = useContext(CarContext);
 
 //     const removeCar = () => {

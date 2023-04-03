@@ -1,9 +1,11 @@
 import { Routes, Route } from 'react-router-dom';
 import './App.css';
-import React, { useEffect } from 'react';
-import { CarProvider } from './contexts/CarContext';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { AuthProvider } from './contexts/AuthContext'
+import { useLocalStorage } from "./hooks/useLocalStorage";
+import { AuthContext } from './contexts/AuthContext';
+import * as carService from './services/carService';
+import { CarContext } from './contexts/CarContext';
 
 import Header from './components/Header/Header';
 import Home from './components/Home/Home';
@@ -23,48 +25,54 @@ import Details from './components/Details/Details';
 
 function App() {
 
-    // const [cars, setCars] = useState([]); // 29.07 преместено в CarContext
-    // const [auth, setAuth] = useLocalStorage('auth', {});// 29.07 преместено в CarContext
-    // const navigate = useNavigate();// 29.07 преместено в CarContext
+    const [cars, setCars] = useState([]); // 29.07 преместено в CarContext
+    const [auth, setAuth] = useLocalStorage('auth', {});// 29.07 преместено в CarContext
+    const navigate = useNavigate();// 29.07 преместено в CarContext
 
-    // const userLogin = (authData) => {// 29.07 преместено в AuthContext
-    //     setAuth(authData);// 29.07 преместено в AuthContext
-    // };
+    const userLogin = (authData) => {// 29.07 преместено в AuthContext
+        setAuth(authData);// 29.07 преместено в AuthContext
+    };
 
-    // const userLogout = () => {// 29.07 преместено в AuthContext
-    //     setAuth({});// 29.07 преместено в AuthContext
-    // };
+    const userLogout = () => {// 29.07 преместено в AuthContext
+        setAuth({});// 29.07 преместено в AuthContext
+    };
 
-    // const carAdd = (carData) => {// 29.07 преместено в AuthContext
-    //     setCars(state => [// 29.07 преместено в AuthContext
-    //         ...state,// 29.07 преместено в AuthContext
-    //         carData,// 29.07 преместено в AuthContext
-    //     ]);
-    // }
-    // navigate('/catalog');// 29.07 преместено в AuthContext
+    const addCar = (carData) => {// 29.07 преместено в AuthContext
+        setCars(state => [// 29.07 преместено в AuthContext
+            ...state,// 29.07 преместено в AuthContext
+            carData,// 29.07 преместено в AuthContext
+        ]);
+    }
+    navigate('/catalog');// 29.07 преместено в AuthContext
 
-    // const editCar = (carId, carData) => {// 29.07
-    //     setCars(state => state.map(x => x._id === carId ? carData : x));// 29.07
-    // }
+    const editCar = (carId, carData) => {// 29.07
+        setCars(state => state.map(x => x._id === carId ? carData : x));// 29.07
+    }
 
-    // useEffect(() => {// 29.07
-    //     carService.getAll()// 29.07
-    //         .then(result => {// 29.07
-    //             setCars(result);// 29.07
-    //         });
-    // }, []);
+    const removeCar = (carData, carId) => {// 29.07 
+        setCars(state => [// 29.07 
+            ...state,// 29.07 
+        ]);// 29.07 
+    };// 29.07
+
+    useEffect(() => {// 29.07
+        carService.getAll()// 29.07
+            .then(result => {// 29.07
+                setCars(result);// 29.07
+            });
+    }, []);
 
     return (
-        <AuthProvider>
+        <AuthContext.Provider value={{ user: auth, userLogin, userLogout }}>
             <Header />
-            <CarProvider>
+            <CarContext.Provider value={{cars, carAdd: addCar, editCar, removeCar}}>
                 <main>
                     <Routes>
                         <Route path='/login' element={<Login />} />
                         <Route path='/logout' element={<Logout />} />
                         <Route path='/register' element={<Register />} />
                         <Route path='/' element={<Home />} />
-                        <Route path='/catalog' element={<Catalog />} />
+                        <Route path='/catalog' element={<Catalog cars={cars}/>} />
                         <Route path='/catalog/CatalogItem' element={<CatalogItem />} />
                         <Route path='/create' element={<Create />} />
                         <Route path='/catalog/:carId/edit' element={<Edit />} />
@@ -72,12 +80,12 @@ function App() {
                         <Route path='/companies' element={<Companies />} />
                         <Route path='/calculator' element={<Calculator />} />
                         <Route path='/offers' element={<Offers />} />
-                        <Route path='/catalog/:carId' element={<Details />} />
+                        <Route path='/catalog/:carId' element={<Details cars={cars}/>} />
                     </Routes>
                 </main>
-            </CarProvider>
+            </CarContext.Provider>
             <Footer />
-        </AuthProvider>
+        </AuthContext.Provider>
     );
 }
 
