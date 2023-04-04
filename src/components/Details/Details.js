@@ -1,24 +1,22 @@
 import { useContext, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import { CarContext } from '../../contexts/CarContext';
 import * as carService from "../../services/carService";
 import { useState } from 'react';
+import * as CarContext from "../../contexts/CarContext"
 
-export const Details = ({}) => {// 29.07 
-//     // const { fetchCarDetails, selectCar } = useContext(CarContext);
-    const { carId } = useParams();// 29.07 
-    const [ currentCar, setCurrentCar ] = useState({});// 29.07 
+export const Details = () => {
+    const { cars } = useContext(CarContext)
+    const { carId } = useParams();
+    const [currentCar, setCurrentCar] = useState({});
 
-//     // const currentCar = selectCar(carId);
-    useEffect(() => { // 29.07
-        carService.getOne(carId) // 29.07
-        .then(result => { // 29.07
-            setCurrentCar(carId, result) // 29.07
-        }); // 29.07
-    }); // 29.07
-//     // const car = cars.find(x => x._id == carId);
-
+    useEffect(() => {
+        carService.getOne(carId)
+            .then(result => {
+                setCurrentCar(carId, result)
+            });
+    });
+    // const car = cars.find(x => x._id == carId);
 
     return (
         <section id="add-car">
@@ -32,8 +30,7 @@ export const Details = ({}) => {// 29.07
                     <h3>VIN: {currentCar.vin}</h3>
                     <h3>Дата на първа регистрация: {currentCar.registration}</h3>
                     <h3>Собственик: {`${currentCar.firstName} ${currentCar.lastName}`}</h3>
-                    <h3></h3>
-                    <Link to={`/catalog/${currentCar._id}/edit`} className="editDelBtn">
+                    <Link to={`/catalog/${carId}/edit`} className="editDelBtn">
                         Промени
                     </Link>
 

@@ -42,8 +42,10 @@ function App() {
             ...state,// 29.07 преместено в AuthContext
             carData,// 29.07 преместено в AuthContext
         ]);
+
+        navigate('/catalog');// 29.07 преместено в AuthContext
+
     }
-    navigate('/catalog');// 29.07 преместено в AuthContext
 
     const editCar = (carId, carData) => {// 29.07
         setCars(state => state.map(x => x._id === carId ? carData : x));// 29.07
@@ -53,6 +55,7 @@ function App() {
         setCars(state => [// 29.07 
             ...state,// 29.07 
         ]);// 29.07 
+        navigate('/catalog')
     };// 29.07
 
     useEffect(() => {// 29.07
@@ -65,22 +68,22 @@ function App() {
     return (
         <AuthContext.Provider value={{ user: auth, userLogin, userLogout }}>
             <Header />
-            <CarContext.Provider value={{cars, carAdd: addCar, editCar, removeCar}}>
+            <CarContext.Provider value={{ cars, addCar, editCar, removeCar }}>
                 <main>
                     <Routes>
                         <Route path='/login' element={<Login />} />
                         <Route path='/logout' element={<Logout />} />
                         <Route path='/register' element={<Register />} />
                         <Route path='/' element={<Home />} />
-                        <Route path='/catalog' element={<Catalog cars={cars}/>} />
-                        <Route path='/catalog/CatalogItem' element={<CatalogItem />} />
+                        <Route path='/catalog' element={<Catalog cars={cars} />} />
+                        <Route path='/catalog/CatalogItem' element={<CatalogItem cars={cars} />} />
                         <Route path='/create' element={<Create />} />
                         <Route path='/catalog/:carId/edit' element={<Edit />} />
                         <Route path='/insurances' element={<Insurances />} />
                         <Route path='/companies' element={<Companies />} />
                         <Route path='/calculator' element={<Calculator />} />
                         <Route path='/offers' element={<Offers />} />
-                        <Route path='/catalog/:carId' element={<Details cars={cars}/>} />
+                        <Route path='/catalog/:carId' element={<Details cars={cars} />} />
                     </Routes>
                 </main>
             </CarContext.Provider>

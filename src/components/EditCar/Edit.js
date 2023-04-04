@@ -4,9 +4,10 @@ import { useParams, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { CarContext } from "../../contexts/CarContext";
 import * as carService from "../../services/carService";
+
 const Edit = () => {
     const [currentCar, setCurrentCar] = useState({});
-    const { carEdit } = useContext(CarContext);
+    const { editCar } = useContext(CarContext);
     const { carId } = useParams();
     const navigate = useNavigate();
 
@@ -14,7 +15,7 @@ const Edit = () => {
         carService.getOne(carId)
         .then(carData => {
             setCurrentCar(carData);
-        });
+        })
     }, []);
 
     const onSubmit = (e) => {
@@ -24,7 +25,7 @@ const Edit = () => {
         
         carService.edit(carId, carData)
         .then(result => {
-            carEdit(carId, result)
+            editCar(carId, result)
             navigate(`/catalog/${carId}`)
         });
     };
@@ -41,7 +42,7 @@ const Edit = () => {
                         id="marka"
                         name="marka"
                         placeholder="Марка"
-                        defaultValue={currentCar.marka}
+                        defaultValue={currentCar.marka || ''}
                     />
                     <label htmlFor="model"></label>
                     <input
@@ -49,7 +50,7 @@ const Edit = () => {
                         id="model"
                         name="model"
                         placeholder="Модел"
-                        defaultValue={currentCar.model}
+                        defaultValue={currentCar.model || ''}
                     />
                     <label htmlFor="number"></label>
                     <input type="text"
@@ -62,7 +63,7 @@ const Edit = () => {
                         type="text" id="docum"
                         name="docum"
                         placeholder="СРМПС"
-                        defaultValue={currentCar.docum}
+                        defaultValue={currentCar.docum || ''}
                     />
                     <label htmlFor="vin"></label>
                     <input
@@ -70,7 +71,7 @@ const Edit = () => {
                         id="vin"
                         name="vin"
                         placeholder="Номер на рама"
-                        defaultValue={currentCar.vin}
+                        defaultValue={currentCar.vin || ''}
                     />
                     <label htmlFor="registration"></label>
                     <input
@@ -78,7 +79,7 @@ const Edit = () => {
                         id="registration"
                         name="registration"
                         placeholder="Дата на първа регистрация"
-                        defaultValue={currentCar.registration}
+                        defaultValue={currentCar.registration || ''}
                     />
                     <label htmlFor="firstName"></label>
                     <input
@@ -86,7 +87,7 @@ const Edit = () => {
                         id="firstName"
                         name="firstName"
                         placeholder="Име"
-                        defaultValue={currentCar.firstName}
+                        defaultValue={currentCar.firstName || ''}
                     />
                     <label htmlFor="lastName"></label>
                     <input
@@ -94,7 +95,7 @@ const Edit = () => {
                         id="lastName"
                         name="lastName"
                         placeholder="Фамилия"
-                        defaultValue={currentCar.lastName}
+                        defaultValue={currentCar.lastName || ''}
                     />
                     <Link to={`/catalog/${currentCar._id}`} className="btn-Save">
                         Запази

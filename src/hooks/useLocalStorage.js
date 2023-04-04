@@ -5,7 +5,7 @@ export const useLocalStorage = (key, defaultValue) => {
         const storedData = localStorage.getItem(key);
 
         return storedData ? JSON.parse(storedData) : defaultValue;
-    })
+    });
 
     const setLocalStorageValue = (newValue) => {
         localStorage.setItem(key, JSON.stringify(newValue));

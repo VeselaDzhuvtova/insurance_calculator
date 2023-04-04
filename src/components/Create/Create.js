@@ -1,6 +1,10 @@
 import * as carService from '../../services/carService';
+import { CarContext } from '../../contexts/CarContext';
+import { useContext } from 'react';
 
-const Create = ({addCar}) => {
+const Create = () => {
+    const { addCar } = useContext(CarContext);
+    
     const onSubmit = (e) => {
         e.preventDefault();
 
