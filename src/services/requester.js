@@ -11,12 +11,32 @@ const request = async (method, url, data) => {
             headers['X-Authorization'] = auth.accessToken;
         }
 
+// Make an HTTP PUT Request
+// async delete(url) {
+  
+//     // Awaiting fetch which contains 
+//     // method, headers and content-type
+//     const response = await fetch(url, {
+//         method: 'DELETE',
+//         headers: {
+//             'Content-type': 'application/json'
+//         }
+//     });
+
+//     // Awaiting for the resource to be deleted
+//     const resData = 'resource deleted...';
+
+//     // Return response data 
+//     return resData;
+// }
+
         let buildRequest;
 
-        if (method === 'GET') {
+        if (method === 'GET' && method !== 'DELETE') {
             buildRequest = fetch(url, { headers });
         } else {
-            buildRequest = fetch(url, {
+            // buildRequest = fetch(url, {
+                buildRequest = fetch('http://localhost:3030/data/cars/12344432', {
                 method,
                 headers: {
                     ...headers,
@@ -33,23 +53,12 @@ const request = async (method, url, data) => {
     } catch (error) {
         console.log(error);
     }
-
-    //     if (response.status === 204) {
-    //         return {};
-    //     }
-
-    //     if (!response.ok) {
-
-    //         throw result;
-    //     }
-
-    //     return result;
 };
 
 
 export const get = request.bind({}, 'GET');
 export const post = request.bind({}, 'POST');
 export const put = request.bind({}, 'PUT');
-export const del = request.bind({}, 'DELETE');
+export const remove = request.bind({}, 'DELETE');
 export const patch = request.bind({}, 'PATCH');
 

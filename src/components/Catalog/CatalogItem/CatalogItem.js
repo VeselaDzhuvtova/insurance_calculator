@@ -2,13 +2,15 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import * as carService from "../../../services/carService"
+import { useContext } from "react";
+import { CarContext } from "../../../contexts/CarContext";
 
 const CatalogItem = ({ car }) => {
     const { carId } = useParams();
     const navigate = useNavigate();
-    // const { carRemove: removeCar } = useContext(CarContext);
+    // const { removeCar } = useContext(CarContext);
 
-    const removeCar = () => {
+    const removeCar = (carId) => {
         const info = window.confirm('Желаете ли да изтриете автомобила от списъка?')
 
         if (info) {
@@ -17,6 +19,9 @@ const CatalogItem = ({ car }) => {
                     removeCar(carId);
                     navigate('/catalog');
                 })
+                .catch((error) => {
+                    console.log(error);
+                });
         }
     }
 
@@ -35,7 +40,7 @@ const CatalogItem = ({ car }) => {
                     <Link to={`/catalog/${car._id}/edit`} className="editDelBtn">
                         Промени
                     </Link>
-                    <button onClick={removeCar} className="delBtn">
+                    <button onClick={() => removeCar(car._id)} className="delBtn">
                         Изтрий
                     </button>
                 </div>

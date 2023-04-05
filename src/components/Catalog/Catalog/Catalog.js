@@ -3,7 +3,6 @@ import { useContext } from "react";
 import { CarContext } from "../../../contexts/CarContext";
 import CatalogItem from "../CatalogItem/CatalogItem";
 
-
 const Catalog = () => {
     const { cars } = useContext(CarContext);
     return (

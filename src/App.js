@@ -50,12 +50,12 @@ function App() {
         setCars(state => state.map(x => x._id === carId ? carData : x));// 29.07
     }
 
-    const removeCar = (carData, carId) => {// 29.07 
-        setCars(state => [// 29.07 
-            ...state,// 29.07 
-        ]);// 29.07 
+    const removeCar = () => { 
+        setCars(state => [ 
+            ...state, 
+        ]); 
         navigate('/catalog')
-    };// 29.07
+    };
 
     useEffect(() => {// 29.07
         carService.getAll()// 29.07
@@ -74,15 +74,15 @@ function App() {
                         <Route path='/logout' element={<Logout />} />
                         <Route path='/register' element={<Register />} />
                         <Route path='/' element={<Home />} />
-                        <Route path='/catalog' element={<Catalog cars={cars} />} />
-                        <Route path='/catalog/CatalogItem' element={<CatalogItem cars={cars} />} />
+                        <Route path='/catalog' element={<Catalog  />} />
+                        <Route path='/catalog/CatalogItem' element={<CatalogItem  />} />
                         <Route path='/create' element={<Create />} />
                         <Route path='/catalog/:carId/edit' element={<Edit />} />
                         <Route path='/insurances' element={<Insurances />} />
                         <Route path='/companies' element={<Companies />} />
                         <Route path='/calculator' element={<Calculator />} />
                         <Route path='/offers' element={<Offers />} />
-                        <Route path='/catalog/:carId' element={<Details cars={cars} />} />
+                        <Route path='/catalog/:carId' element={<Details />} />
                     </Routes>
                 </main>
             </CarProvider>

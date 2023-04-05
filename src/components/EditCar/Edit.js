@@ -1,7 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
-import { Link } from "react-router-dom";
 import { CarContext } from "../../contexts/CarContext";
 import * as carService from "../../services/carService";
 
@@ -20,13 +19,13 @@ const Edit = () => {
         registration: currentCar.registration || '',
         firstName: currentCar.firstName || '',
         lastName: currentCar.lastName || '',
-      });
+    });
 
     useEffect(() => {
         carService.getOne(carId)
-        .then(carData => {
-            setCurrentCar(carData);
-        })
+            .then(carData => {
+                setCurrentCar(carData);
+            })
     }, [carId, getOne]);
 
     const onChange = (e) => {
@@ -34,23 +33,27 @@ const Edit = () => {
             ...currentCar,
             [e.target.name]: e.target.value
         });
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value
+        });
     };
 
     const onSubmit = (e) => {
         e.preventDefault();
         // const carData = Object.fromEntries(new FormData(e.target));
-        
+
         carService.edit(carId, formData)
-        .then(result => {
-            editCar(carId, result)
-            navigate(`/catalog/${carId}`)
-        });
+            .then(result => {
+                editCar(carId, result)
+                navigate(`/catalog/${carId}`)
+            });
     };
 
 
     return (
         <div className="text-center" >
-            <form id='create' method="POST" onSubmit = {onSubmit}>
+            <form id='create' method="POST" onSubmit={onSubmit}>
                 <div className="form-group">
                     <h3>Промени данните на автомобила</h3>
                     <label htmlFor="marka"></label>
@@ -59,7 +62,7 @@ const Edit = () => {
                         id="marka"
                         name="marka"
                         placeholder="Марка"
-                        defaultValue={currentCar.marka || ''}
+                        defaultValue={formData.marka || ''}
                         onChange={onChange}
                     />
                     <label htmlFor="model"></label>
@@ -68,7 +71,7 @@ const Edit = () => {
                         id="model"
                         name="model"
                         placeholder="Модел"
-                        defaultValue={currentCar.model || ''}
+                        defaultValue={formData.model || ''}
                         onChange={onChange}
                     />
                     <label htmlFor="number"></label>
@@ -76,7 +79,7 @@ const Edit = () => {
                         id="number"
                         name="number"
                         placeholder="ДКН"
-                        defaultValue={currentCar.number || ''}
+                        defaultValue={formData.number || ''}
                         onChange={onChange}
                     />
                     <label htmlFor="docum"></label>
@@ -84,7 +87,7 @@ const Edit = () => {
                         type="text" id="docum"
                         name="docum"
                         placeholder="СРМПС"
-                        defaultValue={currentCar.docum || ''}
+                        defaultValue={formData.docum || ''}
                         onChange={onChange}
                     />
                     <label htmlFor="vin"></label>
@@ -93,7 +96,7 @@ const Edit = () => {
                         id="vin"
                         name="vin"
                         placeholder="Номер на рама"
-                        defaultValue={currentCar.vin || ''}
+                        defaultValue={formData.vin || ''}
                         onChange={onChange}
                     />
                     <label htmlFor="registration"></label>
@@ -102,7 +105,7 @@ const Edit = () => {
                         id="registration"
                         name="registration"
                         placeholder="Дата на първа регистрация"
-                        defaultValue={currentCar.registration || ''}
+                        defaultValue={formData.registration || ''}
                         onChange={onChange}
                     />
                     <label htmlFor="firstName"></label>
@@ -111,7 +114,7 @@ const Edit = () => {
                         id="firstName"
                         name="firstName"
                         placeholder="Име"
-                        defaultValue={currentCar.firstName || ''}
+                        defaultValue={formData.firstName || ''}
                         onChange={onChange}
                     />
                     <label htmlFor="lastName"></label>
@@ -120,12 +123,12 @@ const Edit = () => {
                         id="lastName"
                         name="lastName"
                         placeholder="Фамилия"
-                        defaultValue={currentCar.lastName || ''}
+                        defaultValue={formData.lastName || ''}
                         onChange={onChange}
                     />
-                    <Link to={`/catalog/${currentCar._id}`} className="btn-Save">
+                    <button type="submit" className="btn-Save">
                         Запази
-                    </Link>
+                    </button>
                 </div>
             </form>
         </div >
