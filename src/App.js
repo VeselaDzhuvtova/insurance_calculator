@@ -5,8 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { useLocalStorage } from "./hooks/useLocalStorage";
 import { AuthContext } from './contexts/AuthContext';
 import * as carService from './services/carService';
-import { CarContext } from './contexts/CarContext';
-
+import { CarProvider } from './contexts/CarContext';
 import Header from './components/Header/Header';
 import Home from './components/Home/Home';
 import Create from './components/Create/Create';
@@ -68,7 +67,7 @@ function App() {
     return (
         <AuthContext.Provider value={{ user: auth, userLogin, userLogout }}>
             <Header />
-            <CarContext.Provider value={{ cars, addCar, editCar, removeCar }}>
+            <CarProvider value={{ cars, addCar, editCar, removeCar }}>
                 <main>
                     <Routes>
                         <Route path='/login' element={<Login />} />
@@ -86,7 +85,7 @@ function App() {
                         <Route path='/catalog/:carId' element={<Details cars={cars} />} />
                     </Routes>
                 </main>
-            </CarContext.Provider>
+            </CarProvider>
             <Footer />
         </AuthContext.Provider>
     );

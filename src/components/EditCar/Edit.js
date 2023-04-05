@@ -7,23 +7,40 @@ import * as carService from "../../services/carService";
 
 const Edit = () => {
     const [currentCar, setCurrentCar] = useState({});
-    const { editCar } = useContext(CarContext);
+    const { editCar, getOne } = useContext(CarContext);
     const { carId } = useParams();
     const navigate = useNavigate();
+
+    const [formData, setFormData] = useState({
+        marka: currentCar.marka || '',
+        model: currentCar.model || '',
+        number: '',
+        docum: currentCar.docum || '',
+        vin: currentCar.vin || '',
+        registration: currentCar.registration || '',
+        firstName: currentCar.firstName || '',
+        lastName: currentCar.lastName || '',
+      });
 
     useEffect(() => {
         carService.getOne(carId)
         .then(carData => {
             setCurrentCar(carData);
         })
-    }, []);
+    }, [carId, getOne]);
+
+    const onChange = (e) => {
+        setCurrentCar({
+            ...currentCar,
+            [e.target.name]: e.target.value
+        });
+    };
 
     const onSubmit = (e) => {
         e.preventDefault();
-
-        const carData = Object.fromEntries(new FormData(e.target));
+        // const carData = Object.fromEntries(new FormData(e.target));
         
-        carService.edit(carId, carData)
+        carService.edit(carId, formData)
         .then(result => {
             editCar(carId, result)
             navigate(`/catalog/${carId}`)
@@ -43,6 +60,7 @@ const Edit = () => {
                         name="marka"
                         placeholder="Марка"
                         defaultValue={currentCar.marka || ''}
+                        onChange={onChange}
                     />
                     <label htmlFor="model"></label>
                     <input
@@ -51,12 +69,15 @@ const Edit = () => {
                         name="model"
                         placeholder="Модел"
                         defaultValue={currentCar.model || ''}
+                        onChange={onChange}
                     />
                     <label htmlFor="number"></label>
                     <input type="text"
                         id="number"
                         name="number"
                         placeholder="ДКН"
+                        defaultValue={currentCar.number || ''}
+                        onChange={onChange}
                     />
                     <label htmlFor="docum"></label>
                     <input
@@ -64,6 +85,7 @@ const Edit = () => {
                         name="docum"
                         placeholder="СРМПС"
                         defaultValue={currentCar.docum || ''}
+                        onChange={onChange}
                     />
                     <label htmlFor="vin"></label>
                     <input
@@ -72,6 +94,7 @@ const Edit = () => {
                         name="vin"
                         placeholder="Номер на рама"
                         defaultValue={currentCar.vin || ''}
+                        onChange={onChange}
                     />
                     <label htmlFor="registration"></label>
                     <input
@@ -80,6 +103,7 @@ const Edit = () => {
                         name="registration"
                         placeholder="Дата на първа регистрация"
                         defaultValue={currentCar.registration || ''}
+                        onChange={onChange}
                     />
                     <label htmlFor="firstName"></label>
                     <input
@@ -88,6 +112,7 @@ const Edit = () => {
                         name="firstName"
                         placeholder="Име"
                         defaultValue={currentCar.firstName || ''}
+                        onChange={onChange}
                     />
                     <label htmlFor="lastName"></label>
                     <input
@@ -96,6 +121,7 @@ const Edit = () => {
                         name="lastName"
                         placeholder="Фамилия"
                         defaultValue={currentCar.lastName || ''}
+                        onChange={onChange}
                     />
                     <Link to={`/catalog/${currentCar._id}`} className="btn-Save">
                         Запази

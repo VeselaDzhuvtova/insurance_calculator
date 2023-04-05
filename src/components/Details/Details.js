@@ -3,7 +3,8 @@ import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import * as carService from "../../services/carService";
 import { useState } from 'react';
-import * as CarContext from "../../contexts/CarContext"
+import { CarContext } from '../../contexts/CarContext';
+
 
 export const Details = () => {
     const { cars } = useContext(CarContext)
@@ -13,9 +14,9 @@ export const Details = () => {
     useEffect(() => {
         carService.getOne(carId)
             .then(result => {
-                setCurrentCar(carId, result)
+                setCurrentCar(result)
             });
-    });
+    }, []);
     // const car = cars.find(x => x._id == carId);
 
     return (
