@@ -2,8 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Calculator = () => {
+
+    function handleSelectChange(event) {
+        const selectedValue = event.target.value;
+        console.log(selectedValue); 
+      }
     return (
-        <section className="goa">
+        <section className="goa" onChange={handleSelectChange}>
             <form id="price">
                 <div id="price">
                     <div id="step1">

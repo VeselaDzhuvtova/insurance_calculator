@@ -14,16 +14,20 @@ const Insurances = () => {
                 </p>
             <ul>
                 <li>
+                <span title="Очаквайте скоро по-подробна информация за продукта">
                     <a href="">
                         <img src="/Images/red1.jpg" alt="Not image found" />
                         <h3>Автомобилни</h3>
                     </a>
+                    </span>
                 </li>
                 <li>
+                <span title="Очаквайте скоро по-подробна информация за продукта">
                     <a href="">
                         <img src="/Images/greece.jpg" alt="Not image found" />
                         <h3>Туристически</h3>
                     </a>
+                    </span>
                 </li>
                 <li>
                     <a href="">
@@ -32,23 +36,29 @@ const Insurances = () => {
                     </a>
                 </li>
                 <li>
+                <span title="Очаквайте скоро по-подробна информация за продукта">
                     <a href="">
                         <img src="/Images/home.jpg" alt="Not image found" />
                         <h3>Имуществени</h3>
                     </a>
+                    </span>
                 </li>
                 <li>
+                <span title="Очаквайте скоро по-подробна информация за продукта">
                     <a href="">
                         <img src="/Images/truck.jpg" alt="Not image found" />
                         <h3>Отговорности</h3>
                         <p />
                     </a>
+                    </span>
                 </li>
                 <li>
+                <span title="Очаквайте скоро по-подробна информация за продукта">
                     <a href="">
                         <img src="/Images/life.jpg" alt="Not image found" />
                         <h3>Живот</h3>
                     </a>
+                    </span>
                 </li>
             </ul>
         </section>

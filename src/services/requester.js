@@ -32,7 +32,7 @@ const request = async (method, url, data) => {
 
         let buildRequest = '';
 
-        if (method === 'GET' && method !== 'DELETE') {
+        if (method === 'GET') {
             buildRequest = fetch(url, { headers });
         } else {
             buildRequest = fetch(url, {

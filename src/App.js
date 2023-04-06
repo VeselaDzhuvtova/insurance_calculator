@@ -50,10 +50,8 @@ function App() {
         setCars(state => state.map(x => x._id === carId ? carData : x));// 29.07
     }
 
-    const removeCar = () => { 
-        setCars(state => [ 
-            ...state, 
-        ]); 
+    const removeCar = (carId) => { 
+        setCars(state => state.filter((x) => x._id !== carId)); 
         navigate('/catalog')
     };
 

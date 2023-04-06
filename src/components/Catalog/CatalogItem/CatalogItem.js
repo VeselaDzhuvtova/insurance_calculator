@@ -16,7 +16,7 @@ const CatalogItem = ({ car }) => {
         if (info) {
             carService.remove(carId)
                 .then(() => {
-                    removeCar(carId);
+                    // removeCar(carId);
                     navigate('/catalog');
                 })
                 .catch((error) => {
