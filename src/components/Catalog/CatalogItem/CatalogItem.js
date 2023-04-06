@@ -12,7 +12,7 @@ const CatalogItem = ({ car }) => {
 
     const removeCar = (carId) => {
         const info = window.confirm('Желаете ли да изтриете автомобила от списъка?')
-
+        console.log(info)
         if (info) {
             carService.remove(carId)
                 .then(() => {

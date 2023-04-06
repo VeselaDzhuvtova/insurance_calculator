@@ -10,7 +10,7 @@ export const create = (carData) => request.post(baseUrl, carData);
 
 export const edit = (carId, carData) => request.put(`${baseUrl}/${carId}`, carData);
 
-export const remove = (carId) => request.remove(`${baseUrl}/${carId}`);
+export const remove = (carId) => request.del(`${baseUrl}/${carId}`);
 
 
 

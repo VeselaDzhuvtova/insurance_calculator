@@ -30,13 +30,12 @@ const request = async (method, url, data) => {
 //     return resData;
 // }
 
-        let buildRequest;
+        let buildRequest = '';
 
         if (method === 'GET' && method !== 'DELETE') {
             buildRequest = fetch(url, { headers });
         } else {
-            // buildRequest = fetch(url, {
-                buildRequest = fetch('http://localhost:3030/data/cars/12344432', {
+            buildRequest = fetch(url, {
                 method,
                 headers: {
                     ...headers,
@@ -59,6 +58,6 @@ const request = async (method, url, data) => {
 export const get = request.bind({}, 'GET');
 export const post = request.bind({}, 'POST');
 export const put = request.bind({}, 'PUT');
-export const remove = request.bind({}, 'DELETE');
+export const del = request.bind({}, 'DELETE');
 export const patch = request.bind({}, 'PATCH');
 
