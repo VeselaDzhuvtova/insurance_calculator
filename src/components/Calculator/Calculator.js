@@ -2,16 +2,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Calculator = () => {
-
-    function calculatePrice() {
-    // Добавяме event listener за промяна на избраните стойности в select елементите
+    let price = 0;
+    const calculatePrice = () => {
 
         document.getElementById("typeSelect").addEventListener("change", calculatePrice);
         document.getElementById("dvigatelSelect").addEventListener("change", calculatePrice);
         const typeSelect = parseInt(document.getElementById("typeSelect").value);
         const dvigatelSelect = parseInt(document.getElementById("dvigatelSelect").value);
-        // Изчисляваме цената в зависимост от избраните стойности
-        let price = 0;
+
         switch (typeSelect) {
             case 1: // Лек автомобил
                 if (dvigatelSelect <= 1200) {
@@ -48,32 +46,7 @@ const Calculator = () => {
                     price = price + 250;
                 }
                 break;
-            case 3: // Мотопед
-                if (dvigatelSelect <= 50) {
-                    price = price + 50;
-                } else if (dvigatelSelect > 50) {
-                    price = price + 100;
-                }
-                break;
-            case 4: // Мотоциклет
-                if (dvigatelSelect <= 600) {
-                    price = price + 50;
-                } else if (dvigatelSelect <= 1000) {
-                    price = price + 100;
-                } else if (dvigatelSelect <= 1200) {
-                    price = price + 150;
-                } else if (dvigatelSelect <= 1400) {
-                    price = price + 200;
-                } else if (dvigatelSelect <= 1600) {
-                    price = price + 250;
-                } else if (dvigatelSelect <= 1800) {
-                    price = price + 300;
-                } else if (dvigatelSelect > 1800) {
-                    price = price + 215;
-                }
-                break;
         }
-        console.log(price)
         return price;
     };
     function handleSelectChange(event) {
@@ -397,4 +370,3 @@ const Calculator = () => {
 };
 
 export default Calculator;
-
