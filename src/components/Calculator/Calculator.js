@@ -3,12 +3,84 @@ import { Link } from "react-router-dom";
 
 const Calculator = () => {
 
+    function calculatePrice() {
+    // Добавяме event listener за промяна на избраните стойности в select елементите
+
+        document.getElementById("typeSelect").addEventListener("change", calculatePrice);
+        document.getElementById("dvigatelSelect").addEventListener("change", calculatePrice);
+        const typeSelect = parseInt(document.getElementById("typeSelect").value);
+        const dvigatelSelect = parseInt(document.getElementById("dvigatelSelect").value);
+        // Изчисляваме цената в зависимост от избраните стойности
+        let price = 0;
+        switch (typeSelect) {
+            case 1: // Лек автомобил
+                if (dvigatelSelect <= 1200) {
+                    price = price + 100;
+                } else if (dvigatelSelect <= 1600) {
+                    price = price + 150;
+                } else if (dvigatelSelect <= 1800) {
+                    price = price + 200;
+                } else if (dvigatelSelect <= 2000) {
+                    price = price + 250;
+                } else if (dvigatelSelect <= 2500) {
+                    price = price + 300;
+                } else if (dvigatelSelect <= 3000) {
+                    price = price + 350;
+                } else if (dvigatelSelect > 3000) {
+                    price = price + 400;
+                }
+                break;
+            case 2: // Товарен автомобил
+                if (typeSelect <= 2500) {
+                    price = price + 200;
+                } else if (dvigatelSelect <= 3000) {
+                    price = price + 250;
+                } else if (dvigatelSelect > 3000) {
+                    price = price + 300;
+                }
+                break;
+            case 98: // Товарен категория N1
+                if (dvigatelSelect <= 2500) {
+                    price = price + 150;
+                } else if (dvigatelSelect <= 3000) {
+                    price = price + 200;
+                } else if (dvigatelSelect > 3000) {
+                    price = price + 250;
+                }
+                break;
+            case 3: // Мотопед
+                if (dvigatelSelect <= 50) {
+                    price = price + 50;
+                } else if (dvigatelSelect > 50) {
+                    price = price + 100;
+                }
+                break;
+            case 4: // Мотоциклет
+                if (dvigatelSelect <= 600) {
+                    price = price + 50;
+                } else if (dvigatelSelect <= 1000) {
+                    price = price + 100;
+                } else if (dvigatelSelect <= 1200) {
+                    price = price + 150;
+                } else if (dvigatelSelect <= 1400) {
+                    price = price + 200;
+                } else if (dvigatelSelect <= 1600) {
+                    price = price + 250;
+                } else if (dvigatelSelect <= 1800) {
+                    price = price + 300;
+                } else if (dvigatelSelect > 1800) {
+                    price = price + 215;
+                }
+                break;
+        }
+        console.log(price)
+        return price;
+    };
     function handleSelectChange(event) {
-        const selectedValue = event.target.value;
-        console.log(selectedValue); 
-      }
+        const price = calculatePrice();
+    }
     return (
-        <section className="goa" onChange={handleSelectChange}>
+        <section className="goa">
             <form id="price">
                 <div id="price">
                     <div id="step1">
@@ -21,6 +93,7 @@ const Calculator = () => {
                                     className="form-control-step1"
                                     name="typeSelect"
                                     id="typeSelect"
+                                    onChange={handleSelectChange}
                                 >
                                     <option value={0}>Изберете</option>
                                     <option value={1}>Лек автомобил</option>
@@ -32,28 +105,6 @@ const Calculator = () => {
                                     <option value={8}>Седлови влекач</option>
                                     <option value={9}>Автобус</option>
                                 </select>
-                            </div>
-                            <div
-                                className="form-group"
-                                id="SelectCapacityPanel"
-                                style={{ display: "none" }}
-                            >
-                                <label>
-                                    Товароносимост&nbsp;&nbsp;
-                                    <span
-                                        className="label-tooltip"
-                                        data-toggle="tooltip"
-                                        title=""
-                                        data-original-title="Товароносимостта е равна на разликата между общото тегло на МПС с товара (F.2.) и теглото на МПС без товара (G.) (Вижте полета (F.2.) и (G.) от регистрационния талон.)"
-                                    />
-                                </label>
-                                <div className="ins-dd">
-                                    <select
-                                        className="form-control-step1"
-                                        name="capacitySelect"
-                                        id="capacitySelect"
-                                    />
-                                </div>
                             </div>
                             <div className="form-group" id="dvigatel">
                                 <label>
@@ -69,6 +120,7 @@ const Calculator = () => {
                                         className="form-control-step1"
                                         name="dvigatelSelect"
                                         id="dvigatelSelect"
+                                        onChange={handleSelectChange}
                                     >
                                         <option value={0}>Изберете</option>
                                         <option value={1200}>до 1200 куб. см.</option>
@@ -332,9 +384,9 @@ const Calculator = () => {
                                 </div>
                             </div>
                             <Link to="/Offers">
-                            <button type="button" className="btn-ins-button" id="calculate">
-                                Изчисли
-                            </button>
+                                <button type="button" className="btn-ins-button" id="calculate">
+                                    Изчисли
+                                </button>
                             </Link>
                         </div>
                     </div>
@@ -345,3 +397,4 @@ const Calculator = () => {
 };
 
 export default Calculator;
+
