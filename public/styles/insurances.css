@@ -1,0 +1,42 @@
+
+.insurances {
+    font-family: sans-serif;
+    color: white;
+    background: #47439d;
+    padding: 20px 30px;
+    text-align: center;
+
+}
+
+.insurances img {
+    width: 150px;
+}
+
+.insurances li {
+    width: 32%;
+    text-align: center;
+}
+
+.insurances a {
+    color: white;
+}
+
+.insurances h3 {
+    color: white;
+}
+
+.insurances h3:hover {
+    color: white;
+}
+
+.f-box {
+    display: inline-block;
+    background: #47439d;
+    font-size: 18px;
+    text-align: center;
+    color: white;
+}
+
+.f-box h4 {
+    font-size: 22px;
+}

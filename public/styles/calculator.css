@@ -1,0 +1,55 @@
+.goa {
+    font-family: sans-serif;
+    color: white;
+    background: #47439d;
+    padding: 20px 200px;
+    width: 900px;
+    height: 800px;
+}
+
+#price {
+    background: #6b725b;
+}
+
+#step1 {
+    text-align: left;
+    font-size: 20px;
+    background: #47439d;
+}
+
+#step1 {
+    text-align: left;
+    font-size: 20px;
+    background: #47439d;
+}
+
+label {
+    color: white;
+}
+
+.form-control-step1 {
+    font-family: sans-serif;
+    font-size: 20px;
+    border-radius: 15px;
+    width: 300px;
+}
+
+#form-step1,
+#form-step2 {
+    display: inline-block;
+    width: 33%;
+    height: 50%;
+    background: #47439d;
+    text-align: left;
+    padding: 10px 50px;
+    margin: 10px;
+}
+
+#form-step1 {
+    float: left;
+}
+
+#form-step2 {
+    float: right;
+    margin-top: 30px;
+}

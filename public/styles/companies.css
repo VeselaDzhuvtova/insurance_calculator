@@ -1,0 +1,36 @@
+body {
+    font-family: sans-serif;
+    font-size: 16px;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.companies {
+    font-family: sans-serif;
+    color: white;
+    background: #47439d;
+    padding: 20px 100px;
+}
+
+.companies img {
+    width: 100px;
+    height: 60px;
+}
+
+.companies li {
+    width: 200px;
+    text-align: center;
+}
+
+.companies a:hover {
+    font-size: 16px;
+    color: white;
+}
+
+.allCompanies {
+    display: inline-block;
+    padding-right: 30px;
+    border: 2px solid black;
+    width: 32%;
+}
+

@@ -1,0 +1,18 @@
+.navigation {
+    padding: 0 20px;
+}
+
+.navigation p {
+    display: inline-block;
+    font-size: 22px;
+    width: 420px;
+}
+
+header nav > * {
+    float: left;
+}
+
+nav {
+    display: inline-block;
+    font-size: 18px;
+}
