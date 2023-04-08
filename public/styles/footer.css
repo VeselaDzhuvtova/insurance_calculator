@@ -1,0 +1,48 @@
+.text-center-copyrights {
+    font-size: 16px;
+    text-align: center;
+}
+
+#footer {
+    text-align: center;
+    font-size: 18px;
+    color: #47439d;
+    margin-top: 100px;
+}
+
+#footer h3 {
+    text-align: center;
+    color: #47439d;
+}
+
+#third-button, .delBtn {
+    font-size: 16px;
+    font-family: sans-serif;
+    background: transparent;
+    border: 2px solid #47439d;
+    color: #47439d;
+    text-align: center;
+    padding: 10px 25px;
+    border-radius: 15px;
+}
+
+#third-button:hover, .delBtn:hover {
+    background: #47439d;
+    color: white;
+    border: 2px solid #47439d;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.contacts h2 {
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 32px;
+    font-style: italic;
+    letter-spacing: 2px;
+    color: black;
+}
+
+.contacts h3 {
+    color: black;
+}

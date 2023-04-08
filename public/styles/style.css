@@ -4,7 +4,10 @@
 @import "insurances.css";
 @import "companies.css";
 @import "catalog.css";
-
+@import "offers.css";
+@import "home.css";
+@import "footer.css";
+@import "loginRegister.css";
 
 
 body {
@@ -40,7 +43,7 @@ nav {
     color: black;
     margin-right: 15px;
 }
-
+/*
 li {
     display: inline-block;
     padding-right: 10px;
@@ -61,7 +64,7 @@ a:hover {
     cursor: pointer;
     font-weight: 600;
 }
-
+/*
 .welcome h2 {
     color: #47439d;
 }
@@ -69,7 +72,7 @@ a:hover {
 .myCars h2 {
     color: #47439d;
 }
-/*
+
 .site-header {
     background: url('/Images/hhh.jpg') no-repeat;
     background-size: 1300px 400px;
@@ -102,7 +105,7 @@ a:hover {
     cursor: pointer;
     font-size: 16px;
 }
-*/
+
 .welcome {
     color: #47439d;
     width: 60%;
@@ -122,7 +125,7 @@ a:hover {
 .contacts h3 {
     color: black;
 }
-
+/*
 h2 {
     text-align: center;
     font-family: sans-serif;
@@ -131,12 +134,12 @@ h2 {
     letter-spacing: 2px;
     color: white;
 }
-
+/*
 .welcome p {
     text-align: center;
     font-size: 18px;
 }
-/*
+
 .insurances {
     font-family: sans-serif;
     color: white;
@@ -294,7 +297,7 @@ label {
     float: right;
     margin-top: 30px;
 }
-*/
+
 
 .btn-ins-button,
 .back-button {
@@ -374,7 +377,7 @@ label {
     border-radius: 10px;
     box-shadow: inset 6px 6px 6px #c0c2c5, inset -6px -6px 6px white;
 }
-*/
+
 .btn-myCars {
     font-size: 16px;
     font-weight: 600;
@@ -393,7 +396,7 @@ input[type=text] {
     font-size: 18px;
     margin-right: 4px;
 }
-
+/*
 .login-box,
 .register-box {
     text-align: center;
@@ -437,7 +440,7 @@ input[type=submit] {
     margin-right: 5px;
     margin-top: 10px;
 }
-
+/*
 #add-car, .offers {
     background-color: transparent;
     box-shadow: 0px 0px 40px 0px;
@@ -492,7 +495,7 @@ input[type=submit]:hover {
     cursor: pointer;
     font-size: 16px;
 }
-
+/*
 .allCars {
     width: 80%;
     background: white;
@@ -517,7 +520,7 @@ input[type=submit]:hover {
     cursor: pointer;
     font-size: 16px;
 }
-
+/*
 .offer {
     display: inline-block;
     font-size: 26px;
@@ -557,11 +560,11 @@ th,
 td {
     padding: 10px;
 }
-
+/*
 .login-box h3 {
     color: crimson;
 }
-
+/*
 #third-button, .delBtn {
     font-size: 16px;
     font-family: sans-serif;
@@ -576,7 +579,7 @@ td {
 .delBtn {
     margin-left: 40px;
 }
-
+/*
 #third-button:hover, .delBtn:hover {
     background: #47439d;
     color: white;
@@ -584,7 +587,7 @@ td {
     cursor: pointer;
     font-size: 16px;
 }
-/*
+
 .f-box {
     display: inline-block;
     background: #47439d;
@@ -596,7 +599,7 @@ td {
 .f-box h4 {
     font-size: 22px;
 }
-*/
+
 .text-center-copyrights {
     font-size: 16px;
     text-align: center;
@@ -612,6 +615,5 @@ td {
 #footer h3 {
     text-align: center;
     color: #47439d;
-
 }
-
+*/
