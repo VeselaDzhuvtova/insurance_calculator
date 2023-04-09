@@ -1,10 +1,13 @@
 import * as request from "./requester";
+import { setInvalidCredentials } from "./helpers";
 
 const baseUrl = `http://localhost:3030/users`;
 
 export const login = (email, password) =>
-    request.post(`${baseUrl}/login`, { email, password });
-
+    request.post(`${baseUrl}/login`, { email, password }).catch(() => {
+        setInvalidCredentials(); 
+        throw new Error('Грешно потребителско име или парола'); 
+    });
 
 export const logout = async (accessToken) => {
     try {

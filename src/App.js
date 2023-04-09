@@ -24,30 +24,30 @@ import Details from './components/Details/Details';
 
 function App() {
 
-    const [cars, setCars] = useState([]); // 29.07 преместено в CarContext
-    const [auth, setAuth] = useLocalStorage('auth', {});// 29.07 преместено в CarContext
-    const navigate = useNavigate();// 29.07 преместено в CarContext
+    const [cars, setCars] = useState([]); 
+    const [auth, setAuth] = useLocalStorage('auth', {});
+    const navigate = useNavigate();
 
-    const userLogin = (authData) => {// 29.07 преместено в AuthContext
-        setAuth(authData);// 29.07 преместено в AuthContext
+    const userLogin = (authData) => { 
+        setAuth(authData); 
     };
 
-    const userLogout = () => {// 29.07 преместено в AuthContext
-        setAuth({});// 29.07 преместено в AuthContext
+    const userLogout = () => { 
+        setAuth({}); 
     };
 
-    const addCar = (carData) => {// 29.07 преместено в AuthContext
-        setCars(state => [// 29.07 преместено в AuthContext
-            ...state,// 29.07 преместено в AuthContext
-            carData,// 29.07 преместено в AuthContext
+    const addCar = (carData) => { 
+        setCars(state => [ 
+            ...state, 
+            carData, 
         ]);
 
-        navigate('/catalog');// 29.07 преместено в AuthContext
+        navigate('/catalog'); 
 
     }
 
-    const editCar = (carId, carData) => {// 29.07
-        setCars(state => state.map(x => x._id === carId ? carData : x));// 29.07
+    const editCar = (carId, carData) => {
+        setCars(state => state.map(x => x._id === carId ? carData : x));
     }
 
     const removeCar = (carId) => { 
@@ -55,10 +55,10 @@ function App() {
         navigate('/catalog')
     };
 
-    useEffect(() => {// 29.07
-        carService.getAll()// 29.07
-            .then(result => {// 29.07
-                setCars(result);// 29.07
+    useEffect(() => {
+        carService.getAll()
+            .then(result => {
+                setCars(result);
             });
     }, []);
 

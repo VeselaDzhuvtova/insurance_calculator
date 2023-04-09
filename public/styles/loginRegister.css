@@ -71,3 +71,8 @@ input[type=text] {
 .login-box h3 {
     color: crimson;
 }
+
+.noCars {
+    color: crimson;
+    display: none;
+}

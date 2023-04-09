@@ -3,27 +3,34 @@ import * as authService from '../../services/authService';
 import { useNavigate } from "react-router-dom";
 import  { AuthContext } from '../../contexts/AuthContext';
 import { useContext } from "react";
+import { useState } from "react";
 
-const Login = () => { // 29.07 
-    const { userLogin } = useContext(AuthContext);// 29.07 
-    const navigate = useNavigate();// 29.07 
-    const onSubmit = (e) => {// 29.07 
-        e.preventDefault();// 29.07 
+const Login = () => {  
+    const { userLogin } = useContext(AuthContext); 
+    const navigate = useNavigate(); 
 
-        const {// 29.07 
-            email,// 29.07 
-            password,// 29.07 
-        } = Object.fromEntries(new FormData(e.target))// 29.07 
+    const [invalidCredentials, setInvalidCredentials] = useState(false);
+
+
+    const onSubmit = (e) => { 
+        e.preventDefault(); 
+
+        const { 
+            email, 
+            password, 
+        } = Object.fromEntries(new FormData(e.target)) 
     
-        authService.login(email, password)// 29.07 
-        .then(authData => {// 29.07 
-            userLogin(authData);// 29.07 
-            navigate('/');// 29.07 
-        }) // 29.07 
-        .catch(() => {// 29.07 
-            navigate('/404');// 29.07 
-        });// 29.07 
-    };// 29.07 
+        authService.login(email, password) 
+        .then(authData => { 
+            setInvalidCredentials(false);
+            userLogin(authData); 
+            navigate('/'); 
+        })  
+        .catch(() => { 
+            setInvalidCredentials(true);
+            navigate('/login'); 
+        }); 
+    }; 
 
     return (
         <div className="login-box">
@@ -48,9 +55,10 @@ const Login = () => { // 29.07
             <p>
                 Нямаш акаунт? <Link to="/Register">Регистрация</Link>
             </p>
-            
-            <h3 className="noCars">Грешно потребителско име или парола</h3>
-        </div>
+            {invalidCredentials && (
+                <h3 className="noCars">Грешно потребителско име или парола</h3>
+            )}       
+             </div>
     );
 };
 
