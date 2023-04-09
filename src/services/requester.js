@@ -1,8 +1,8 @@
+
 const request = async (method, url, data) => {
 
     try {
         const user = localStorage.getItem('auth');
-
         const auth = JSON.parse(user || '{}');
 
         let headers = {}
@@ -23,7 +23,7 @@ const request = async (method, url, data) => {
                     'content-type': 'application/json'
                 },
                 body: JSON.stringify(data)
-            });
+            })
         }
         const response = await buildRequest;
 
