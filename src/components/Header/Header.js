@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 
 import{ AuthContext }from '../../contexts/AuthContext';
 
-const Header = () => {
-  const { user } = useContext(AuthContext);
+export const Header = () => {
+  const { isAuthenticated, userEmail } = useContext(AuthContext);
 
   return (
     <header>
@@ -16,22 +16,27 @@ const Header = () => {
             <Link to="/insurances">ПРОДУКТИ</Link>
 
             <Link to="/companies">КОМПАНИИ</Link>
-            {user.email
-              ? <div id='user'>
-                <Link to="/catalog">КАТАЛОГ</Link>
-                <Link to="/create"></Link>
-                <Link to="/calculator">КАЛКУЛАТОР</Link>
-                <Link to="/offers"></Link>
-                <Link to="/logout">ИЗХОД</Link>
-                {user.email && <span style={{color: "#47439d", fontWeight: "bold"}}>
-                  {` Здравей, ${user.email} `}</span>}
-              </div>
-              : <div id='guest'>
-                <Link to="/login">ВХОД</Link>
+            {isAuthenticated && (
+              <div id='user'>
+              <Link to="/catalog">КАТАЛОГ</Link>
+              <Link to="/create"></Link>
+              <Link to="/calculator">КАЛКУЛАТОР</Link>
+              <Link to="/offers"></Link>
+              <Link to="/logout">ИЗХОД</Link>
+              {userEmail && <span style={{color: "#47439d", fontWeight: "bold"}}>
+                {` Здравей, ${userEmail} `}</span>}
+            </div>
+            )}
 
-                <Link to="/register">РЕГИСТРАЦИЯ</Link>
-              </div>
-            }
+            {!isAuthenticated && (
+              <div id='guest'>
+              <Link to="/login">ВХОД</Link>
+
+              <Link to="/register">РЕГИСТРАЦИЯ</Link>
+            </div>
+            )}
+
+
           </div>
         </nav>
       </section>
@@ -42,5 +47,3 @@ const Header = () => {
     </header >
   );
 };
-
-export default Header;

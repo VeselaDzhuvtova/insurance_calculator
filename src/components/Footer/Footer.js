@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function Footer() {
+export function Footer() {
     const [email, setEmail] = useState(''); 
     const [isSaved, setIsSaved] = useState(false); 
 
@@ -55,4 +55,4 @@ function Footer() {
     };
 
 
-    export default Footer;
+    // export default Footer;

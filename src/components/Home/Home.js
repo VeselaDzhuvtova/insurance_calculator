@@ -1,4 +1,4 @@
-const Home = () => {
+export const Home = () => {
     return (
         <section className="welcome">
         <h2>Добре дошли</h2>
@@ -17,4 +17,4 @@ const Home = () => {
     );
 };
 
-export default Home;
+// export default Home;

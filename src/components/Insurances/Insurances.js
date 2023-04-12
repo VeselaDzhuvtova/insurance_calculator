@@ -1,4 +1,4 @@
-const Insurances = () => {
+export const Insurances = () => {
     return (
         <section className="insurances">
             <div className="f-box">
@@ -65,4 +65,4 @@ const Insurances = () => {
     );
 };
 
-export default Insurances;
+// export default Insurances;

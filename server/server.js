@@ -1339,24 +1339,6 @@
     	}
     };
     var seedData = {
-            "cars": {
-                "d953e5fb-a585-4d6b-92d3-ee2049216267a0": {
-                    marka: "Opel",
-                    model: "Astra",
-                    number: "E0000EE",
-                    docum: "012345678",
-                    firstName: "Ivan",
-                    lastName: "Ivanov"
-                },
-                "d953e5fb-a585-4d6b-92d3-ee0000204921a0": {
-                    marka: "Renault",
-                    model: "Megane",
-                    number: "E0001EE",
-                    docum: "012345655",
-                    firstName: "Peter",
-                    lastName: "Petrov"
-                }
-            },
     	comments: {
     		"0a272c58-b7ea-4e09-a000-7ec988248f66": {
     			_ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",

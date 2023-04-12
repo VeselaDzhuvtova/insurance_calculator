@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import calculatePrice from '../Calculator/Calculator';
 
-const Offers = ({price}) => {
+export const Offers = ({price}) => {
     // const typeSelect = 1; // примерни стойности на типа и двигателя
     // const dvigatelSelect = 2000;
     price = calculatePrice(); 
@@ -26,4 +26,4 @@ const Offers = ({price}) => {
     );
   };
   
-  export default Offers;
+  // export default Offers;

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Calculator = () => {
+ const Calculator = () => {
     let price = 0;
     const calculatePrice = () => {
 

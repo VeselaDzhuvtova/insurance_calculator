@@ -1,4 +1,4 @@
-const Companies = () => {
+export const Companies = () => {
     return (
         <section className="companies">
             <h2>КОМПАНИИ</h2>
@@ -88,4 +88,4 @@ const Companies = () => {
     );
 };
 
-export default Companies;
+// export default Companies;

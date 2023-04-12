@@ -1,10 +1,9 @@
-import { useContext } from "react";
+import { useCarContext } from "../../../contexts/CarContext";
 
-import { CarContext } from "../../../contexts/CarContext";
-import CatalogItem from "../CatalogItem/CatalogItem";
+import { CatalogItem } from "../CatalogItem/CatalogItem";
 
-const Catalog = () => {
-    const { cars } = useContext(CarContext);
+export const Catalog = () => {
+    const { cars } = useCarContext();
     return (
         <section className="myCars">
             <div className="cars">
@@ -13,14 +12,17 @@ const Catalog = () => {
                 <a href="/create" className="newCar">
                     Добави
                 </a>
-                
-                {cars.length > 0
-                    ? cars.map(x => <CatalogItem key={x._id} car={x} />)
-                    : <h3 className="noCars">Няма намерени автомобили</h3>
-                }
+
+                {cars.map(x =>
+                    <CatalogItem key={x._id} {...x} />
+                )}
+
+                {cars.length === 0 && (
+                    <h3 className="noCars">Няма намерени автомобили</h3>
+                )}
             </div>
         </section>
     )
 }
 
-export default Catalog;
+// export default Catalog;
